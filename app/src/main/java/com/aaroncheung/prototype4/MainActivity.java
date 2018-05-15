@@ -26,7 +26,7 @@ import java.util.Map;
 public class MainActivity extends Activity {
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
     public final String TAG = "debug321";
-    Button startButton, sendButton, clearButton, stopButton;
+    Button startButton, sendButton, clearButton, stopButton, faceButton;
     TextView textView;
     EditText editText;
     UsbManager usbManager;
@@ -105,6 +105,7 @@ public class MainActivity extends Activity {
         clearButton = findViewById(R.id.buttonClear);
         stopButton = findViewById(R.id.buttonStop);
         editText = findViewById(R.id.editText);
+        faceButton = findViewById(R.id.faceButton);
         textView = findViewById(R.id.textView);
         setUiEnabled(false);
         IntentFilter filter = new IntentFilter();
@@ -112,8 +113,6 @@ public class MainActivity extends Activity {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(broadcastReceiver, filter);
-
-
     }
 
     public void setUiEnabled(boolean bool) {
@@ -157,6 +156,11 @@ public class MainActivity extends Activity {
         serialPort.write(string.getBytes());
         tvAppend(textView, "\nData Sent : " + string + "\n");
 
+    }
+
+    public void sender(String s){
+        Log.d(TAG, "sender was clicked");
+        serialPort.write(s.getBytes());
     }
 
     public void onClickStop(View view) {
