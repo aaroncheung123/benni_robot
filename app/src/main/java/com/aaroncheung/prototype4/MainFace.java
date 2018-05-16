@@ -69,6 +69,8 @@ public class MainFace extends AppCompatActivity implements
     }
 
     public void happyFaceClick(View view){
+        Toast.makeText(this, "listening",
+                Toast.LENGTH_SHORT).show();
         ActivityCompat.requestPermissions
                 (MainFace.this,
                         new String[]{Manifest.permission.RECORD_AUDIO},
@@ -166,8 +168,11 @@ public class MainFace extends AppCompatActivity implements
 
         Log.i("info", s);
 
-        if(s.equals("test")){
+        MainActivity ma = new MainActivity();
 
+
+        if(s.equals("hello")){
+            ma.sender("w");
         }
 
 

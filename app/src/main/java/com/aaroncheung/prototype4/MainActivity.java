@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
@@ -159,7 +160,9 @@ public class MainActivity extends Activity {
     }
 
     public void sender(String s){
-        Log.d(TAG, "sender was clicked");
+        Log.d(TAG, "sender was clicked: " + s);
+        Toast.makeText(this, "Message sent: " + s,
+                Toast.LENGTH_SHORT).show();
         serialPort.write(s.getBytes());
     }
 
@@ -167,7 +170,6 @@ public class MainActivity extends Activity {
         setUiEnabled(false);
         serialPort.close();
         tvAppend(textView,"\nSerial Connection Closed! \n");
-
     }
 
     public void onClickClear(View view) {
@@ -193,3 +195,4 @@ public class MainActivity extends Activity {
     }
 
 }
+
