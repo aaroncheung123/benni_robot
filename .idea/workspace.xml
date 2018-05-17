@@ -6,13 +6,11 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="debug321" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="debug_main654" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1d2f0f0-753e-44ca-81c6-6fe9bbcc3196" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/xml/device_filter.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
@@ -22,9 +20,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainFace.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainFace.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +48,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="119" column="52" lean-forward="true" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+            <state relative-caret-position="1058">
+              <caret line="180" column="12" lean-forward="false" selection-start-line="180" selection-start-column="12" selection-end-line="180" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,26 +60,14 @@
       <file leaf-file-name="RobotFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+            <state relative-caret-position="1458">
+              <caret line="127" column="42" lean-forward="false" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1676#2289#0" expanded="true" />
-                <element signature="e#2288#2289#0" expanded="true" />
-                <element signature="e#2349#4390#0" expanded="true" />
-                <element signature="e#4389#4390#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainFace.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainFace.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1946">
-              <caret line="170" column="72" lean-forward="false" selection-start-line="170" selection-start-column="72" selection-end-line="170" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1733#2346#0" expanded="true" />
+                <element signature="e#2345#2346#0" expanded="true" />
+                <element signature="e#2406#4447#0" expanded="true" />
+                <element signature="e#4446#4447#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,29 +101,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="device_filter.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/device_filter.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main_face.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main_face.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="46" lean-forward="false" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -155,6 +118,8 @@
       <find>registerRec</find>
       <find>Log</find>
       <find>Context</find>
+      <find>faceButton</find>
+      <find>g2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2177,12 +2142,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main_face.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Broadcast.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Broadcaster.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainFace.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" />
       </list>
     </option>
@@ -2295,6 +2260,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prototype4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prototype4" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2511,7 +2485,7 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19599427" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2586,7 +2560,7 @@
         <state relative-caret-position="2055">
           <caret line="168" column="21" lean-forward="false" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2638,7 +2612,7 @@
         <state relative-caret-position="315">
           <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2713,17 +2687,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Broadcast.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
@@ -2750,29 +2713,40 @@
         <state relative-caret-position="1946">
           <caret line="170" column="72" lean-forward="false" selection-start-line="170" selection-start-column="72" selection-end-line="170" selection-end-column="72" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="41" column="52" lean-forward="false" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+        <state relative-caret-position="1458">
+          <caret line="127" column="42" lean-forward="false" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1676#2289#0" expanded="true" />
-            <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#2349#4390#0" expanded="true" />
-            <element signature="e#4389#4390#0" expanded="true" />
+            <element signature="e#1733#2346#0" expanded="true" />
+            <element signature="e#2345#2346#0" expanded="true" />
+            <element signature="e#2406#4447#0" expanded="true" />
+            <element signature="e#4446#4447#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="119" column="52" lean-forward="true" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+        <state relative-caret-position="1058">
+          <caret line="180" column="12" lean-forward="false" selection-start-line="180" selection-start-column="12" selection-end-line="180" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -24,7 +24,7 @@ public class RobotFacade extends ContextWrapper {
 
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final String TAG = "debug321";
+    public final String TAG = "debug_facade";
     private static RobotFacade sRobotFacadeInstance;
 
     UsbManager usbManager;
@@ -40,6 +40,7 @@ public class RobotFacade extends ContextWrapper {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(broadcastReceiver, filter);
+        Log.d(TAG, "Constructor has been called 2");
     }
 
     public static RobotFacade getInstance(Context context){
@@ -117,13 +118,17 @@ public class RobotFacade extends ContextWrapper {
     public void onClickStart() {
         Log.d(TAG, "start 1");
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
+        Log.d(TAG, "start 1.5");
         if (!usbDevices.isEmpty()) {
+            Log.d(TAG, "start 2");
             boolean keep = true;
             for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
+                Log.d(TAG, "start 3");
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
                 if (deviceVID == 0x2341)//Arduino Vendor ID
                 {
+                    Log.d(TAG, "start 4");
                     PendingIntent pi = PendingIntent.getBroadcast(getBaseContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
                     usbManager.requestPermission(device, pi);
                     keep = false;
@@ -141,9 +146,12 @@ public class RobotFacade extends ContextWrapper {
     }
 
     public void onClickSend(String s) {
+        onClickStart();
         Log.d(TAG, "sender was clicked: " + s);
         //Toast.makeText(this, "Message sent: " + s,Toast.LENGTH_SHORT).show();
         serialPort.write(s.getBytes());
+
+        Log.d(TAG, "sender was clicked 1 ");
 
     }
 
