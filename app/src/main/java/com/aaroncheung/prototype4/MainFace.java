@@ -33,7 +33,7 @@ public class MainFace extends AppCompatActivity implements
     private ImageView happyface;
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
-    private String LOG_TAG = "VoiceRecognitionActivity";
+    private String LOG_TAG = "debug321";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,22 +142,22 @@ public class MainFace extends AppCompatActivity implements
 
     @Override
     public void onEvent(int arg0, Bundle arg1) {
-        Log.i(LOG_TAG, "onEvent");
+        Log.d(LOG_TAG, "onEvent");
     }
 
     @Override
     public void onPartialResults(Bundle arg0) {
-        Log.i(LOG_TAG, "onPartialResults");
+        Log.d(LOG_TAG, "onPartialResults");
     }
 
     @Override
     public void onReadyForSpeech(Bundle arg0) {
-        Log.i(LOG_TAG, "onReadyForSpeech");
+        Log.d(LOG_TAG, "onReadyForSpeech");
     }
 
     @Override
     public void onResults(Bundle results) {
-        Log.i(LOG_TAG, "onResults");
+        Log.d(LOG_TAG, "onResults");
         ArrayList<String> matches = results
                 .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
 //        String text = "";
@@ -166,14 +166,19 @@ public class MainFace extends AppCompatActivity implements
         String s = new String();
         s = matches.get(0);
 
-        Log.i("info", s);
+        Log.d(LOG_TAG, s);
 
-        MainActivity ma = new MainActivity();
+        RobotFacade.getInstance(getApplicationContext()).onClickSend(s);
 
+        Intent intent = new Intent();
+        intent.putExtra(MainActivity.KEY_MESSAGE, s);
+        setResult(RESULT_OK, intent);
+        finish();
 
-        if(s.equals("hello")){
-            ma.sender("w");
-        }
+//
+//        if(s.equals("hello")){
+//            ma.sender("w");
+//        }
 
 
 
