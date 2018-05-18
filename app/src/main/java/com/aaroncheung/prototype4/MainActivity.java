@@ -1,17 +1,26 @@
 package com.aaroncheung.prototype4;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -22,15 +31,29 @@ import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements RecognitionListener {
     public final static String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
     public final static String TAG = "debug_main654";
     private final static int MAIN_FACE_REQUEST_CODE = 123;
     public static final String KEY_MESSAGE = "msg";
     private boolean permissionGranted = false;
+
+
+
+
+    //****************** SPEECH CODE
+    private static final int REQUEST_RECORD_PERMISSION = 100;
+    private SpeechRecognizer speech = null;
+    private Intent recognizerIntent;
+
+
+
+
+
     //Button faceButton;
     ImageView faceView;
 
@@ -108,7 +131,16 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //This makes it fullscreen mode!!!!
+        //--------------------------------------------------
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        //--------------------------------------------------
 
         Log.d(TAG, "onCreate was created ");
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
@@ -119,7 +151,33 @@ public class MainActivity extends Activity {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(broadcastReceiver, filter);
+
+
+        //************** SPEECH CODE
+
+
+
+
+        speech = SpeechRecognizer.createSpeechRecognizer(this);
+        Log.d(TAG, "isRecognitionAvailable: " + SpeechRecognizer.isRecognitionAvailable(this));
+        speech.setRecognitionListener(this);
+        recognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE,
+                "en");
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
     }
+
+    public void startListening(){
+        Log.d(TAG, "starting to listen");
+        ActivityCompat.requestPermissions
+                (MainActivity.this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        REQUEST_RECORD_PERMISSION);
+    }
+
+    //************** SPEECH CODE
 
 
     public void onClickStart() {
@@ -175,13 +233,51 @@ public class MainActivity extends Activity {
 //        startActivityForResult(i, MAIN_FACE_REQUEST_CODE);
 //        RobotFacade robot = RobotFacade.getInstance(this);
 //        robot.onClickSend("testing");
+
+        //******************
+
+
+//        Log.d(TAG, "face click 1");
+//        onClickStart();
+//        if(permissionGranted){
+//            sender("hi");
+//        }
+//
+//        Log.d(TAG, "face click 2");
+
+        //******************
+
         Log.d(TAG, "face click 1");
-        onClickStart();
         if(permissionGranted){
-            sender("hi");
+            startListening();
+        }
+        else{
+            onClickStart();
         }
 
-        Log.d(TAG, "face click 2");
+
+    }
+
+    public void broadcastResults(String message){
+        Log.d(TAG, "Message 1");
+        if(permissionGranted){
+            if(message.equals("forward")){
+                Log.d(TAG, "Message 2");
+                sender("w");
+            }
+            else if(message.equals("backward")){
+                Log.d(TAG, "Message 3");
+                sender("s");
+            }
+            else if(message.equals("left")){
+                Log.d(TAG, "Message 4");
+                sender("a");
+            }
+            else if(message.equals("right")){
+                Log.d(TAG, "Message 5");
+                sender("d");
+            }
+        }
 
     }
 
@@ -192,6 +288,154 @@ public class MainActivity extends Activity {
             String myMessage = data.getStringExtra(KEY_MESSAGE);
             Log.d(TAG, "Message: " + myMessage);
         }
+    }
+
+
+
+
+    //****************************
+
+
+    // SPEECH CODE
+
+
+    //****************************
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.d(TAG, "onRequestPermissionsResult 1");
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_RECORD_PERMISSION:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    speech.startListening(recognizerIntent);
+                } else {
+                    Toast.makeText(this, "Permission Denied!", Toast
+                            .LENGTH_SHORT).show();
+                }
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (speech != null) {
+            speech.destroy();
+            Log.i(TAG, "destroy");
+        }
+    }
+
+
+    @Override
+    public void onBeginningOfSpeech() {
+        Log.d(TAG, "onBeginningOfSpeech");
+        //progressBar.setIndeterminate(false);
+        //progressBar.setMax(10);
+    }
+
+    @Override
+    public void onBufferReceived(byte[] buffer) {
+        Log.i(TAG, "onBufferReceived: " + buffer);
+    }
+
+    @Override
+    public void onEndOfSpeech() {
+        Log.d(TAG, "onEndOfSpeech");
+        //progressBar.setIndeterminate(true);
+        //toggleButton.setChecked(false);
+    }
+
+    @Override
+    public void onError(int errorCode) {
+        String errorMessage = getErrorText(errorCode);
+        Log.d(TAG, "FAILED " + errorMessage);
+        //returnedText.setText(errorMessage);
+        //toggleButton.setChecked(false);
+    }
+
+    @Override
+    public void onEvent(int arg0, Bundle arg1) {
+        Log.i(TAG, "onEvent");
+    }
+
+    @Override
+    public void onPartialResults(Bundle arg0) {
+        Log.i(TAG, "onPartialResults");
+    }
+
+    @Override
+    public void onReadyForSpeech(Bundle arg0) {
+        Log.i(TAG, "onReadyForSpeech");
+    }
+
+    @Override
+    public void onResults(Bundle results) {
+        Log.d(TAG, "onResults");
+        ArrayList<String> matches = results
+                .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+        String text = "";
+        for (String result : matches)
+            text += result + "\n";
+
+        Log.d(TAG, matches.get(0));
+
+        broadcastResults(matches.get(0));
+
+        //returnedText.setText(text);
+    }
+
+    @Override
+    public void onRmsChanged(float rmsdB) {
+        Log.d(TAG, "onRmsChanged: " + rmsdB);
+        //progressBar.setProgress((int) rmsdB);
+    }
+
+    public static String getErrorText(int errorCode) {
+        String message;
+        switch (errorCode) {
+            case SpeechRecognizer.ERROR_AUDIO:
+                message = "Audio recording error";
+                break;
+            case SpeechRecognizer.ERROR_CLIENT:
+                message = "Client side error";
+                break;
+            case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                message = "Insufficient permissions";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK:
+                message = "Network error";
+                break;
+            case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                message = "Network timeout";
+                break;
+            case SpeechRecognizer.ERROR_NO_MATCH:
+                message = "No match";
+                break;
+            case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                message = "RecognitionService busy";
+                break;
+            case SpeechRecognizer.ERROR_SERVER:
+                message = "error from server";
+                break;
+            case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                message = "No speech input";
+                break;
+            default:
+                message = "Didn't understand, please try again.";
+                break;
+        }
+        return message;
     }
 }
 
