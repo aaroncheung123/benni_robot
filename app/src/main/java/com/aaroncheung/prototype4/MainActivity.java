@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -33,11 +34,12 @@ import com.felhr.usbserial.UsbSerialInterface;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity extends Activity implements RecognitionListener {
     public final static String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final static String TAG = "debug_main654";
+    public final static String TAG = "debug_main123";
     private final static int MAIN_FACE_REQUEST_CODE = 123;
     public static final String KEY_MESSAGE = "msg";
     private boolean permissionGranted = false;
@@ -69,7 +71,7 @@ public class MainActivity extends Activity implements RecognitionListener {
             Log.d(TAG, "onReceivedData 1");
             try {
                 data = new String(arg0, "UTF-8");
-                Log.d(TAG, "************ " + data);
+                Log.d(TAG, "data: ************ " + data);
                 //data = data.concat("\n");
                 //tvAppend(textView, data);
                 //tvAppend(textView, "test1");
@@ -247,6 +249,7 @@ public class MainActivity extends Activity implements RecognitionListener {
 
         //******************
 
+
         Log.d(TAG, "face click 1");
         if(permissionGranted){
             startListening();
@@ -276,6 +279,10 @@ public class MainActivity extends Activity implements RecognitionListener {
             else if(message.equals("right")){
                 Log.d(TAG, "Message 5");
                 sender("d");
+            }
+            else if(message.equals("stop")){
+                Log.d(TAG, "Message 6");
+                sender("z");
             }
         }
 
