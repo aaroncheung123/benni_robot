@@ -53,6 +53,7 @@ public class MainActivity extends Activity implements RecognitionListener {
     private Intent recognizerIntent;
 
 
+    private TextToSpeech mTTS;
 
 
 
@@ -169,6 +170,28 @@ public class MainActivity extends Activity implements RecognitionListener {
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
+
+
+
+        //********** TEXT TO SPEECH
+
+        mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    int result = mTTS.setLanguage(Locale.GERMAN);
+
+                    if (result == TextToSpeech.LANG_MISSING_DATA
+                            || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "Language not supported");
+                    } else {
+                        //mButtonSpeak.setEnabled(true);
+                    }
+                } else {
+                    Log.e("TTS", "Initialization failed");
+                }
+            }
+        });
     }
 
     public void startListening(){
@@ -179,7 +202,33 @@ public class MainActivity extends Activity implements RecognitionListener {
                         REQUEST_RECORD_PERMISSION);
     }
 
+    private void speak(String message) {
+        String text = message;
+        float pitch = (float) .75;
+        if (pitch < 0.1) pitch = 0.1f;
+        float speed = (float) .8;
+        if (speed < 0.1) speed = 0.1f;
+
+        mTTS.setPitch(pitch);
+        mTTS.setSpeechRate(speed);
+
+        mTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        if (mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+        }
+
+        super.onDestroy();
+    }
+
     //************** SPEECH CODE
+
+
 
 
     public void onClickStart() {
@@ -250,13 +299,15 @@ public class MainActivity extends Activity implements RecognitionListener {
         //******************
 
 
-        Log.d(TAG, "face click 1");
-        if(permissionGranted){
-            startListening();
-        }
-        else{
-            onClickStart();
-        }
+//        Log.d(TAG, "face click 1");
+//        if(permissionGranted){
+//            startListening();
+//        }
+//        else{
+//            onClickStart();
+//        }
+
+        speak("Hello");
 
 
     }
