@@ -24,7 +24,7 @@ public class RobotFacade extends ContextWrapper {
 
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final String TAG = "debug_facade";
+    public final String TAG = "debug_main5";
     private static RobotFacade sRobotFacadeInstance;
 
     UsbManager usbManager;
@@ -32,8 +32,12 @@ public class RobotFacade extends ContextWrapper {
     UsbSerialDevice serialPort;
     UsbDeviceConnection connection;
 
-    private RobotFacade(Context base) {
+    Context context;
+
+    public RobotFacade(Context base, UsbManager usbManager) {
         super(base);
+        context = base;
+        this.usbManager = usbManager;
         Log.d(TAG, "Constructor has been called 1");
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_USB_PERMISSION);
@@ -43,9 +47,9 @@ public class RobotFacade extends ContextWrapper {
         Log.d(TAG, "Constructor has been called 2");
     }
 
-    public static RobotFacade getInstance(Context context){
+    public static RobotFacade getInstance(Context context, UsbManager usbManager){
         if(sRobotFacadeInstance == null){
-            sRobotFacadeInstance = new RobotFacade(context);
+            sRobotFacadeInstance = new RobotFacade(context, usbManager);
         }
         return sRobotFacadeInstance;
 
@@ -76,14 +80,21 @@ public class RobotFacade extends ContextWrapper {
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG, "broadcast 1");
             if (intent.getAction() != null && intent.getAction().equals(ACTION_USB_PERMISSION)) {
+                Log.d(TAG, "broadcast 2");
 
                 boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
 
                 if (granted) {
+                    Log.d(TAG, "broadcast 3");
+                    Log.d(TAG, "usb manager: " + usbManager.toString());
                     connection = usbManager.openDevice(device);
+                    Log.d(TAG, "broadcast 3.1");
                     serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
+                    Log.d(TAG, "broadcast 3.2");
                     if (serialPort != null) {
+                        Log.d(TAG, "broadcast 4");
                         if (serialPort.open()) { //Set Serial Connection Parameters.
+                            Log.d(TAG, "broadcast 5");
                             //setUiEnabled(true);
                             serialPort.setBaudRate(9600);
                             serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
@@ -92,6 +103,8 @@ public class RobotFacade extends ContextWrapper {
                             serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
                             serialPort.read(mCallback);
                             Log.d(TAG, "Serial Connection Opened");
+                            Toast.makeText(context, "Serial Connection Opened",
+                                    Toast.LENGTH_SHORT).show();
                             //tvAppend(textView,"Serial Connection Opened!\n");
 
                         } else {
@@ -104,19 +117,22 @@ public class RobotFacade extends ContextWrapper {
                     Log.d("SERIAL", "PERM NOT GRANTED");
                 }
             } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
+                Log.d(TAG, "broadcast 6");
                 onClickStart();
             } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
+                Log.d(TAG, "broadcast 7");
                 onClickStop();
 
             }
-            Log.d(TAG, "broadcast 2");
+            Log.d(TAG, "broadcast 8");
         }
     };
 
 
 
-    public void onClickStart() {
+    public boolean onClickStart() {
         Log.d(TAG, "start 1");
+        //UsbManager usbManager = (UsbManager) context.getSystemService(context.USB_SERVICE);
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
         Log.d(TAG, "start 1.5");
         if (!usbDevices.isEmpty()) {
@@ -129,7 +145,7 @@ public class RobotFacade extends ContextWrapper {
                 if (deviceVID == 0x2341)//Arduino Vendor ID
                 {
                     Log.d(TAG, "start 4");
-                    PendingIntent pi = PendingIntent.getBroadcast(getBaseContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
+                    PendingIntent pi = PendingIntent.getBroadcast(context, 0, new Intent(ACTION_USB_PERMISSION), 0);
                     usbManager.requestPermission(device, pi);
                     keep = false;
                 } else {
@@ -141,12 +157,14 @@ public class RobotFacade extends ContextWrapper {
                     break;
             }
         }
+        Log.d(TAG, "start 5");
+        return true;
 
-        Log.d(TAG, "start 2");
+
     }
 
     public void onClickSend(String s) {
-        onClickStart();
+        //onClickStart();
         Log.d(TAG, "sender was clicked: " + s);
         //Toast.makeText(this, "Message sent: " + s,Toast.LENGTH_SHORT).show();
         serialPort.write(s.getBytes());

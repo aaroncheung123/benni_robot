@@ -168,7 +168,7 @@ public class MainFace extends AppCompatActivity implements
 
         Log.d(LOG_TAG, s);
 
-        RobotFacade.getInstance(getApplicationContext()).onClickSend(s);
+        //RobotFacade.getInstance(getApplicationContext()).onClickSend(s);
 
         Intent intent = new Intent();
         intent.putExtra(MainActivity.KEY_MESSAGE, s);

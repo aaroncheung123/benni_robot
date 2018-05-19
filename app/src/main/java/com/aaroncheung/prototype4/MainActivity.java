@@ -12,6 +12,7 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -43,7 +44,7 @@ public class MainActivity extends Activity implements RecognitionListener {
     private final static int MAIN_FACE_REQUEST_CODE = 123;
     public static final String KEY_MESSAGE = "msg";
     private boolean permissionGranted = false;
-
+    private RobotFacade robotFacade;
 
 
 
@@ -83,53 +84,53 @@ public class MainActivity extends Activity implements RecognitionListener {
 
         }
     };
-    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d(TAG, "broadcast 1");
-            if (intent.getAction() != null && intent.getAction().equals(ACTION_USB_PERMISSION)) {
-                Log.d(TAG, "broadcast 2");
-                boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
-
-                if (granted) {
-                    Log.d(TAG, "broadcast 3");
-                    connection = usbManager.openDevice(device);
-                    serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
-                    if (serialPort != null) {
-                        Log.d(TAG, "broadcast 4");
-                        if (serialPort.open()) { //Set Serial Connection Parameters.
-                            permissionGranted = true;
-                            Log.d(TAG, "broadcast 5");
-                            serialPort.setBaudRate(9600);
-                            serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
-                            serialPort.setStopBits(UsbSerialInterface.STOP_BITS_1);
-                            serialPort.setParity(UsbSerialInterface.PARITY_NONE);
-                            serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
-                            serialPort.read(mCallback);
-                            //tvAppend(textView,"Serial Connection Opened!\n");
-                            Toast.makeText(MainActivity.this,
-                                    "Serial Connection Opened", Toast.LENGTH_SHORT).show();
-
-                        } else {
-                            Log.d("SERIAL", "PORT NOT OPEN");
-                        }
-                    } else {
-                        Log.d("SERIAL", "PORT IS NULL");
-                    }
-                } else {
-                    Log.d("SERIAL", "PERM NOT GRANTED");
-                }
-            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
-                Log.d(TAG, "broadcast 6");
-                onClickStart();
-            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
-                Log.d(TAG, "broadcast 7");
-                onClickStop();
-
-            }
-            Log.d(TAG, "broadcast 8");
-        }
-    };
+//    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { //Broadcast Receiver to automatically start and stop the Serial connection.
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            Log.d(TAG, "broadcast 1");
+//            if (intent.getAction() != null && intent.getAction().equals(ACTION_USB_PERMISSION)) {
+//                Log.d(TAG, "broadcast 2");
+//                boolean granted = intent.getExtras().getBoolean(UsbManager.EXTRA_PERMISSION_GRANTED);
+//
+//                if (granted) {
+//                    Log.d(TAG, "broadcast 3");
+//                    connection = usbManager.openDevice(device);
+//                    serialPort = UsbSerialDevice.createUsbSerialDevice(device, connection);
+//                    if (serialPort != null) {
+//                        Log.d(TAG, "broadcast 4");
+//                        if (serialPort.open()) { //Set Serial Connection Parameters.
+//                            permissionGranted = true;
+//                            Log.d(TAG, "broadcast 5");
+//                            serialPort.setBaudRate(9600);
+//                            serialPort.setDataBits(UsbSerialInterface.DATA_BITS_8);
+//                            serialPort.setStopBits(UsbSerialInterface.STOP_BITS_1);
+//                            serialPort.setParity(UsbSerialInterface.PARITY_NONE);
+//                            serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
+//                            serialPort.read(mCallback);
+//                            //tvAppend(textView,"Serial Connection Opened!\n");
+//                            Toast.makeText(MainActivity.this,
+//                                    "Serial Connection Opened", Toast.LENGTH_SHORT).show();
+//
+//                        } else {
+//                            Log.d("SERIAL", "PORT NOT OPEN");
+//                        }
+//                    } else {
+//                        Log.d("SERIAL", "PORT IS NULL");
+//                    }
+//                } else {
+//                    Log.d("SERIAL", "PERM NOT GRANTED");
+//                }
+//            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
+//                Log.d(TAG, "broadcast 6");
+//                onClickStart();
+//            } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
+//                Log.d(TAG, "broadcast 7");
+//                onClickStop();
+//
+//            }
+//            Log.d(TAG, "broadcast 8");
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,14 +147,15 @@ public class MainActivity extends Activity implements RecognitionListener {
         //--------------------------------------------------
 
         Log.d(TAG, "onCreate was created ");
-        usbManager = (UsbManager) getSystemService(USB_SERVICE);
+//        usbManager = (UsbManager) getSystemService(USB_SERVICE);
+//        robotFacade = new RobotFacade(this, usbManager);
         //faceButton = findViewById(R.id.faceButton);
         faceView = findViewById(R.id.multiFace);
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ACTION_USB_PERMISSION);
-        filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
-        filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
-        registerReceiver(broadcastReceiver, filter);
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(ACTION_USB_PERMISSION);
+//        filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
+//        filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
+//        registerReceiver(broadcastReceiver, filter);
 
 
         //************** SPEECH CODE
@@ -231,31 +233,31 @@ public class MainActivity extends Activity implements RecognitionListener {
 
 
 
-    public void onClickStart() {
-        Log.d(TAG, "start 1");
-        HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
-        if (!usbDevices.isEmpty()) {
-            boolean keep = true;
-            for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
-                device = entry.getValue();
-                int deviceVID = device.getVendorId();
-                if (deviceVID == 0x2341)//Arduino Vendor ID
-                {
-                    PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
-                    usbManager.requestPermission(device, pi);
-                    keep = false;
-                } else {
-                    connection = null;
-                    device = null;
-                }
-
-                if (!keep)
-                    break;
-            }
-        }
-
-        Log.d(TAG, "start 2");
-    }
+//    public void onClickStart() {
+//        Log.d(TAG, "start 1");
+//        HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
+//        if (!usbDevices.isEmpty()) {
+//            boolean keep = true;
+//            for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
+//                device = entry.getValue();
+//                int deviceVID = device.getVendorId();
+//                if (deviceVID == 0x2341)//Arduino Vendor ID
+//                {
+//                    PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
+//                    usbManager.requestPermission(device, pi);
+//                    keep = false;
+//                } else {
+//                    connection = null;
+//                    device = null;
+//                }
+//
+//                if (!keep)
+//                    break;
+//            }
+//        }
+//
+//        Log.d(TAG, "start 2");
+//    }
 
     public void onClickSend() {
         Log.d(TAG, "onClickSend was clicked");
@@ -307,7 +309,28 @@ public class MainActivity extends Activity implements RecognitionListener {
 //            onClickStart();
 //        }
 
-        speak("Hello");
+        //speak("Hello");
+        usbManager = (UsbManager) getSystemService(USB_SERVICE);
+        robotFacade = new RobotFacade(this, usbManager);
+
+        Log.d(TAG, "face click 1");
+
+        if(robotFacade.onClickStart()){
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "face click 2");
+                    robotFacade.onClickSend("n");
+                }
+            }, 2000);
+
+
+        }
+
+
+
 
 
     }
