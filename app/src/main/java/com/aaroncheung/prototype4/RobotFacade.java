@@ -24,7 +24,7 @@ public class RobotFacade extends ContextWrapper {
 
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final String TAG = "debug_main5";
+    public final String TAG = "debug_main6";
     private static RobotFacade sRobotFacadeInstance;
 
     UsbManager usbManager;
@@ -69,8 +69,6 @@ public class RobotFacade extends ContextWrapper {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-
-
         }
     };
 

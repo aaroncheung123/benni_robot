@@ -171,7 +171,7 @@ public class MainFace extends AppCompatActivity implements
         //RobotFacade.getInstance(getApplicationContext()).onClickSend(s);
 
         Intent intent = new Intent();
-        intent.putExtra(MainActivity.KEY_MESSAGE, s);
+        //intent.putExtra(MainActivity.KEY_MESSAGE, s);
         setResult(RESULT_OK, intent);
         finish();
 
