@@ -39,7 +39,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity extends Activity {
-    public final static String TAG = "debug_main2";
+    public final static String TAG = "debug_main3";
     private boolean permissionGranted = false;
     private ArduinoCommunicator arduinoCommunicator;
     private UsbManager usbManager;

@@ -24,7 +24,8 @@ public class ArduinoCommunicator extends ContextWrapper {
 
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final String TAG = "debug_main2";
+    public final String TAG = "debug_main3";
+    private static ArduinoCommunicator sArduinoCommunicatorInstance;
 
     UsbManager usbManager;
     UsbDevice device;
@@ -32,6 +33,7 @@ public class ArduinoCommunicator extends ContextWrapper {
     UsbDeviceConnection connection;
 
     Context context;
+
 
     public ArduinoCommunicator(Context base, UsbManager usbManager) {
         super(base);
@@ -44,6 +46,14 @@ public class ArduinoCommunicator extends ContextWrapper {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(broadcastReceiver, filter);
         Log.d(TAG, "Constructor has been called 2");
+    }
+
+    public static ArduinoCommunicator getInstance(Context context, UsbManager usbManager){
+        if(sArduinoCommunicatorInstance == null){
+            sArduinoCommunicatorInstance = new ArduinoCommunicator(context, usbManager);
+        }
+        return sArduinoCommunicatorInstance;
+
     }
 
 
