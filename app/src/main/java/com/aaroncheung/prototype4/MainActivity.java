@@ -39,9 +39,9 @@ import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity extends Activity {
-    public final static String TAG = "debug_main6";
+    public final static String TAG = "debug_main2";
     private boolean permissionGranted = false;
-    private RobotFacade robotFacade;
+    private ArduinoCommunicator arduinoCommunicator;
     private UsbManager usbManager;
 
     ImageView faceView;
@@ -70,18 +70,18 @@ public class MainActivity extends Activity {
 
     public void faceClick(View view){
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
-        robotFacade = new RobotFacade(this, usbManager);
+        arduinoCommunicator = new ArduinoCommunicator(this, usbManager);
 
         Log.d(TAG, "face click 1");
 
-        if(robotFacade.onClickStart()){
+        if(arduinoCommunicator.onClickStart()){
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Log.d(TAG, "face click 2");
-                    robotFacade.onClickSend("n");
+                    arduinoCommunicator.onClickSend("n");
                 }
             }, 2000);
         }
