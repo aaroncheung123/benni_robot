@@ -25,7 +25,6 @@ public class ArduinoCommunicator extends ContextWrapper {
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
     public final String TAG = "debug_main3";
-    private static ArduinoCommunicator sArduinoCommunicatorInstance;
 
     UsbManager usbManager;
     UsbDevice device;
@@ -47,15 +46,6 @@ public class ArduinoCommunicator extends ContextWrapper {
         registerReceiver(broadcastReceiver, filter);
         Log.d(TAG, "Constructor has been called 2");
     }
-
-    public static ArduinoCommunicator getInstance(Context context, UsbManager usbManager){
-        if(sArduinoCommunicatorInstance == null){
-            sArduinoCommunicatorInstance = new ArduinoCommunicator(context, usbManager);
-        }
-        return sArduinoCommunicatorInstance;
-
-    }
-
 
     UsbSerialInterface.UsbReadCallback mCallback = new UsbSerialInterface.UsbReadCallback() { //Defining a Callback which triggers whenever data is read.
         @Override
