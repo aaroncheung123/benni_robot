@@ -2,14 +2,9 @@ package com.aaroncheung.prototype4;
 
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.IntentFilter;
-import android.hardware.usb.UsbDevice;
-import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.util.Log;
-
-import com.felhr.usbserial.UsbSerialDevice;
 
 public class RobotFacade extends ContextWrapper {
 

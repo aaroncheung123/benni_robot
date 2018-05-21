@@ -27,9 +27,6 @@
                 android:resource="@xml/device_filter" />
         </activity>
 
-        <activity android:name=".MainFace">
-        </activity>
-
     </application>
 
 </manifest>

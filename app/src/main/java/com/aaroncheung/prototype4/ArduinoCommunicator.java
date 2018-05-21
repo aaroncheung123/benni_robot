@@ -10,7 +10,6 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.felhr.usbserial.UsbSerialDevice;
@@ -22,7 +21,6 @@ import java.util.Map;
 
 public class ArduinoCommunicator extends ContextWrapper {
 
-
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
     public final String TAG = "debug_main3";
 
@@ -32,7 +30,6 @@ public class ArduinoCommunicator extends ContextWrapper {
     UsbDeviceConnection connection;
 
     Context context;
-
 
     public ArduinoCommunicator(Context base, UsbManager usbManager) {
         super(base);
@@ -82,8 +79,6 @@ public class ArduinoCommunicator extends ContextWrapper {
                             Log.d(TAG, "Serial Connection Opened");
                             Toast.makeText(context, "Serial Connection Opened",
                                     Toast.LENGTH_SHORT).show();
-                            //tvAppend(textView,"Serial Connection Opened!\n");
-
                         } else {
                             Log.d("SERIAL", "PORT NOT OPEN");
                         }
@@ -101,7 +96,6 @@ public class ArduinoCommunicator extends ContextWrapper {
             }
         }
     };
-
 
 
     public boolean onClickStart() {
@@ -140,10 +134,8 @@ public class ArduinoCommunicator extends ContextWrapper {
 
 
     public void onClickStop() {
-        //setUiEnabled(false);
         serialPort.close();
         Log.d(TAG, "Serial Connection Closed");
-        //tvAppend(textView,"\nSerial Connection Closed! \n");
     }
-
 }
+
