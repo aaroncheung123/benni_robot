@@ -13,13 +13,14 @@ public class RobotFacade extends ContextWrapper {
 
     Context context;
     ArduinoCommunicator arduinoCommunicator;
+    Speech speech;
 
     public RobotFacade(Context context, UsbManager usbManager) {
         super(context);
         this.context = context;
 
         arduinoCommunicator = new ArduinoCommunicator(context, usbManager);
-
+        speech = new Speech(context);
     }
 
     public boolean start(){
@@ -37,6 +38,19 @@ public class RobotFacade extends ContextWrapper {
         else{
             return false;
         }
+    }
+
+    public void say(final String robotFacadeMessage){
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "say1");
+                speech.say(robotFacadeMessage);
+            }
+        }, 500);
+
     }
 
     private void sendArduino(){

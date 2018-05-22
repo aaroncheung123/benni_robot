@@ -3,11 +3,14 @@ package com.aaroncheung.prototype4;
 import android.app.Activity;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import java.util.Locale;
 
 public class MainActivity extends Activity {
     public final static String TAG = "debug_main3";
@@ -33,13 +36,14 @@ public class MainActivity extends Activity {
         Log.d(TAG, "onCreate was created ");
         faceView = findViewById(R.id.multiFace);
         UsbManager usbManager = (UsbManager) this.getSystemService(this.USB_SERVICE);
-
     }
 
 
     public void faceClick(View view){
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
         robotFacade = new RobotFacade(this, usbManager);
+
+        //robotFacade.say("Hello my name is Nelly");
         Log.d(TAG, "face click 1");
         if(robotFacade.start()){
             Log.d(TAG, "Startup Succeeded");
