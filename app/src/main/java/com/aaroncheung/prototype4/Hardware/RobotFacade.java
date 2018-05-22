@@ -1,10 +1,12 @@
 package com.aaroncheung.prototype4;
 
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.util.Log;
+
+import com.aaroncheung.prototype4.Hardware.ArduinoCommunicator;
+import com.aaroncheung.prototype4.Hardware.Speech;
 
 public class RobotFacade {
 
@@ -32,14 +34,6 @@ public class RobotFacade {
         arduinoCommunicator = new ArduinoCommunicator(context, usbManager);
         speech = new Speech(context);
     }
-
-//    public RobotFacade(Context context, UsbManager usbManager) {
-//        super(context);
-//        this.context = context;
-//
-//        arduinoCommunicator = new ArduinoCommunicator(context, usbManager);
-//        speech = new Speech(context);
-//    }
 
     public boolean start(){
         if(arduinoCommunicator.onClickStart()){
