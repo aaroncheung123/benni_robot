@@ -1,13 +1,19 @@
 package com.aaroncheung.prototype4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import com.aaroncheung.prototype4.Hardware.RobotFacade;
+import com.aaroncheung.prototype4.States.HappyState;
+import com.aaroncheung.prototype4.States.RobotState;
 
 public class MainActivity extends Activity {
     public final static String TAG = "debug_main4";
@@ -43,7 +49,12 @@ public class MainActivity extends Activity {
         robotFacade.init(this, usbManager);
 
         robotState = RobotState.getInstance();
-        robotState.explain();
+
+        Intent myIntent = new Intent(this, HappyStateActivity.class);
+        //myIntent.putExtra("key", value); //Optional parameters
+        this.startActivity(myIntent);
+
+
 
 
 //        robotFacade.say("Hello my name is Nelly");

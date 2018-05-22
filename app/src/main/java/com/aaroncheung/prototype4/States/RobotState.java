@@ -1,6 +1,4 @@
-package com.aaroncheung.prototype4;
-import com.aaroncheung.prototype4.States.HappyState;
-import com.aaroncheung.prototype4.States.State;
+package com.aaroncheung.prototype4.States;
 
 public class RobotState implements State{
 

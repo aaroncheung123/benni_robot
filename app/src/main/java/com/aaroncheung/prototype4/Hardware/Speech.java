@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4;
+package com.aaroncheung.prototype4.Hardware;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;

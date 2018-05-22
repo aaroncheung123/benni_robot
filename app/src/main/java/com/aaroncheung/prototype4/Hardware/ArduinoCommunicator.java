@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4;
+package com.aaroncheung.prototype4.Hardware;
 
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;

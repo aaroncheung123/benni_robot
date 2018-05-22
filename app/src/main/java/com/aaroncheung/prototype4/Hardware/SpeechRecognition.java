@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4;
+package com.aaroncheung.prototype4.Hardware;
 
 import android.Manifest;
 import android.content.Context;
@@ -12,7 +12,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
