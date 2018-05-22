@@ -22,7 +22,7 @@ import java.util.Map;
 public class ArduinoCommunicator extends ContextWrapper {
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final String TAG = "debug_main3";
+    public final String TAG = "debug_main4";
 
     UsbManager usbManager;
     UsbDevice device;

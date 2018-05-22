@@ -3,19 +3,17 @@ package com.aaroncheung.prototype4;
 import android.app.Activity;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import java.util.Locale;
-
 public class MainActivity extends Activity {
-    public final static String TAG = "debug_main3";
+    public final static String TAG = "debug_main4";
     private UsbManager usbManager;
     private RobotFacade robotFacade;
+    private RobotState robotState;
 
     ImageView faceView;
 
@@ -41,16 +39,21 @@ public class MainActivity extends Activity {
 
     public void faceClick(View view){
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
-        robotFacade = new RobotFacade(this, usbManager);
+        robotFacade = RobotFacade.getInstance();
+        robotFacade.init(this, usbManager);
 
-        //robotFacade.say("Hello my name is Nelly");
-        Log.d(TAG, "face click 1");
-        if(robotFacade.start()){
-            Log.d(TAG, "Startup Succeeded");
-        }
-        else{
-            Log.d(TAG, "Startup Failed");
-        }
+        robotState = new RobotState();
+        robotState.explain();
+
+
+//        robotFacade.say("Hello my name is Nelly");
+//        Log.d(TAG, "face click 1");
+//        if(robotFacade.start()){
+//            Log.d(TAG, "Startup Succeeded");
+//        }
+//        else{
+//            Log.d(TAG, "Startup Failed");
+//        }
     }
 }
 

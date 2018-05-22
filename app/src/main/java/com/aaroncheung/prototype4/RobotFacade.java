@@ -6,22 +6,40 @@ import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.util.Log;
 
-public class RobotFacade extends ContextWrapper {
+public class RobotFacade {
 
-    public final String TAG = "debug_main3";
-
+    public final String TAG = "debug_main4";
 
     Context context;
     ArduinoCommunicator arduinoCommunicator;
     Speech speech;
 
-    public RobotFacade(Context context, UsbManager usbManager) {
-        super(context);
-        this.context = context;
+    private static RobotFacade instance = null;
 
+    private RobotFacade() {
+        // Exists only to defeat instantiation.
+    }
+
+    public static RobotFacade getInstance() {
+        if(instance == null) {
+            instance = new RobotFacade();
+        }
+        return instance;
+    }
+
+    public void init(Context context, UsbManager usbManager){
+        this.context = context;
         arduinoCommunicator = new ArduinoCommunicator(context, usbManager);
         speech = new Speech(context);
     }
+
+//    public RobotFacade(Context context, UsbManager usbManager) {
+//        super(context);
+//        this.context = context;
+//
+//        arduinoCommunicator = new ArduinoCommunicator(context, usbManager);
+//        speech = new Speech(context);
+//    }
 
     public boolean start(){
         if(arduinoCommunicator.onClickStart()){

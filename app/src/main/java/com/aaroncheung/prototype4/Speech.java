@@ -12,12 +12,10 @@ public class Speech {
     private TextToSpeech mTTS;
 
     public Speech(Context context) {
-        Log.d(TAG, "t1");
         mTTS = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    Log.d(TAG, "t2");
                     int result = mTTS.setLanguage(Locale.ENGLISH);
 
                     if (result == TextToSpeech.LANG_MISSING_DATA
