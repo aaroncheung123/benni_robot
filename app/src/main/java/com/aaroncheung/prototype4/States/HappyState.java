@@ -7,6 +7,5 @@ public class HappyState implements State {
     @Override
     public void explain() {
         RobotFacade.getInstance().say("I am in the happy state");
-        System.out.println("Robot is in happy state");
     }
 }

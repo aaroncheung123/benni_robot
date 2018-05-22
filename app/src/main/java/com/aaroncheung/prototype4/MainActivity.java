@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
         robotFacade = RobotFacade.getInstance();
         robotFacade.init(this, usbManager);
 
-        robotState = new RobotState();
+        robotState = RobotState.getInstance();
         robotState.explain();
 
 

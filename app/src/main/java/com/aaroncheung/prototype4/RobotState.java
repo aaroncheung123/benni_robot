@@ -6,8 +6,17 @@ public class RobotState implements State{
 
     private State RobotState;
 
-    public RobotState(){
+    private static RobotState instance = null;
+    private RobotState() {
+        // Exists only to defeat instantiation.
         RobotState = new HappyState();
+    }
+
+    public static RobotState getInstance() {
+        if(instance == null) {
+            instance = new RobotState();
+        }
+        return instance;
     }
 
     public void setState(State state) {

@@ -11,23 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1d2f0f0-753e-44ca-81c6-6fe9bbcc3196" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/SadState.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/State.java" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/ArduinoCommunicator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/ArduinoCommunicator.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Speech.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Speech.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="200">
+              <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -63,7 +49,7 @@
       <file leaf-file-name="RobotFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-307">
+            <state relative-caret-position="-184">
               <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
               <folding>
                 <element signature="e#1285#1507#0" expanded="true" />
@@ -73,21 +59,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RobotState.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RobotState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+            <state relative-caret-position="83">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#235#236#0" expanded="true" />
-                <element signature="e#280#281#0" expanded="true" />
-                <element signature="e#321#322#0" expanded="true" />
-                <element signature="e#355#356#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#419#420#0" expanded="true" />
-                <element signature="e#462#463#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#577#578#0" expanded="true" />
+                <element signature="e#611#612#0" expanded="true" />
+                <element signature="e#642#643#0" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
+                <element signature="e#718#719#0" expanded="true" />
+                <element signature="e#754#755#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,8 +93,11 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-              <folding />
+              <caret line="8" column="65" lean-forward="false" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+              <folding>
+                <element signature="e#176#177#0" expanded="true" />
+                <element signature="e#248#249#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2191,10 +2178,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/ArduinoCommunicator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/State.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/SadState.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -3027,22 +3014,17 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="8" column="62" lean-forward="false" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
+          <caret line="8" column="65" lean-forward="false" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <folding>
+            <element signature="e#176#177#0" expanded="true" />
+            <element signature="e#248#249#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
+        <state relative-caret-position="-184">
           <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding>
             <element signature="e#1285#1507#0" expanded="true" />
@@ -3053,19 +3035,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/RobotState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        <state relative-caret-position="83">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
