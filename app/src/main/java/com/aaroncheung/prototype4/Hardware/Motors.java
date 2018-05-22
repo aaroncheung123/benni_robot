@@ -19,7 +19,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArduinoCommunicator extends ContextWrapper {
+public class Motors extends ContextWrapper {
 
     public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
     public final String TAG = "debug_main4";
@@ -31,7 +31,7 @@ public class ArduinoCommunicator extends ContextWrapper {
 
     Context context;
 
-    public ArduinoCommunicator(Context base, UsbManager usbManager) {
+    public Motors(Context base, UsbManager usbManager) {
         super(base);
         context = base;
         this.usbManager = usbManager;

@@ -6,6 +6,6 @@ public class HappyState implements State {
 
     @Override
     public void explain() {
-        RobotFacade.getInstance().say("I am in the happy state");
+        RobotFacade.getInstance().say("happy");
     }
 }

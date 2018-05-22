@@ -2,16 +2,20 @@ package com.aaroncheung.prototype4;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.aaroncheung.prototype4.Hardware.RobotFacade;
 import com.aaroncheung.prototype4.States.HappyState;
 import com.aaroncheung.prototype4.States.RobotState;
 import com.aaroncheung.prototype4.States.SadState;
 
 public class HappyStateActivity extends Activity {
 
+    public final static String TAG = "debug_main4";
     private RobotState robotState;
+    private RobotFacade robotFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +33,16 @@ public class HappyStateActivity extends Activity {
 
         RobotState.getInstance().setState(new HappyState());
         robotState = RobotState.getInstance();
+        robotFacade = RobotFacade.getInstance();
+
+
         begin();
     }
 
     private void begin(){
+        Log.d(TAG, "HAPPYSTATEACTIVITY1");
         robotState.explain();
+        robotFacade.forward();
+        Log.d(TAG, "HAPPYSTATEACTIVITY2");
     }
 }

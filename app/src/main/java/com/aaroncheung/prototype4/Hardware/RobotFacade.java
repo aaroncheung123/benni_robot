@@ -10,7 +10,7 @@ public class RobotFacade {
     public final String TAG = "debug_main4";
 
     Context context;
-    ArduinoCommunicator arduinoCommunicator;
+    Motors motors;
     Speech speech;
 
     private static RobotFacade instance = null;
@@ -28,18 +28,19 @@ public class RobotFacade {
 
     public void init(Context context, UsbManager usbManager){
         this.context = context;
-        arduinoCommunicator = new ArduinoCommunicator(context, usbManager);
+        motors = new Motors(context, usbManager);
         speech = new Speech(context);
+        start();
     }
 
     public boolean start(){
-        if(arduinoCommunicator.onClickStart()){
+        if(motors.onClickStart()){
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Log.d(TAG, "robot facade start");
-                    arduinoCommunicator.sendArduino("x");
+                    motors.sendArduino("start");
                 }
             }, 2000);
             return true;
@@ -62,8 +63,20 @@ public class RobotFacade {
 
     }
 
-    private void sendArduino(){
-
+    public void forward(){
+        motors.sendArduino("w");
+    }
+    public void backward(){
+        motors.sendArduino("s");
+    }
+    public void left(){
+        motors.sendArduino("a");
+    }
+    public void right(){
+        motors.sendArduino("d");
+    }
+    public void stop(){
+        motors.sendArduino("z");
     }
 
 

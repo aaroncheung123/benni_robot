@@ -47,24 +47,12 @@ public class MainActivity extends Activity {
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
         robotFacade = RobotFacade.getInstance();
         robotFacade.init(this, usbManager);
-
         robotState = RobotState.getInstance();
+        robotFacade.start();
+        Log.d(TAG, "fc1");
 
         Intent myIntent = new Intent(this, HappyStateActivity.class);
-        //myIntent.putExtra("key", value); //Optional parameters
         this.startActivity(myIntent);
-
-
-
-
-//        robotFacade.say("Hello my name is Nelly");
-//        Log.d(TAG, "face click 1");
-//        if(robotFacade.start()){
-//            Log.d(TAG, "Startup Succeeded");
-//        }
-//        else{
-//            Log.d(TAG, "Startup Failed");
-//        }
     }
 }
 

@@ -6,6 +6,6 @@ public class SadState implements State {
 
     @Override
     public void explain() {
-        RobotFacade.getInstance().say("I am in the sad state");
+        RobotFacade.getInstance().say("sad");
     }
 }
