@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/sadStateFace"
-        android:layout_width="512dp"
-        android:layout_height="305dp"
+        android:layout_width="650dp"
+        android:layout_height="366dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
