@@ -2,8 +2,8 @@ package com.aaroncheung.prototype4;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -14,7 +14,7 @@ import com.aaroncheung.prototype4.States.HappyState;
 import com.aaroncheung.prototype4.States.RobotState;
 import com.aaroncheung.prototype4.States.SadState;
 
-public class HappyStateActivity extends Activity {
+public class SadStateActivity extends Activity {
 
     public final static String TAG = "debug_main4";
     private RobotState robotState;
@@ -30,34 +30,27 @@ public class HappyStateActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_happy_state);
+        setContentView(R.layout.activity_sad_state);
 
         //--------------------------------------------------
 
-        RobotState.getInstance().setState(new HappyState());
+        RobotState.getInstance().setState(new SadState());
         robotState = RobotState.getInstance();
         robotFacade = RobotFacade.getInstance();
 
         begin();
-//        final Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                begin();
-//            }
-//        }, 2000);
 
     }
 
     private void begin(){
-        Log.d(TAG, "HAPPYSTATEACTIVITY1");
+        Log.d(TAG, "SAD_STATE_ACTIVITY 1");
         robotState.explain();
-        robotFacade.forward();
-        Log.d(TAG, "HAPPYSTATEACTIVITY2");
+        robotFacade.backward();
+        Log.d(TAG, "SAD_STATE_ACTIVITY 2");
     }
 
-    public void happyStateFaceClick(View view){
-        Intent myIntent = new Intent(this, SadStateActivity.class);
+    public void sadStateFaceClick(View view){
+        Intent myIntent = new Intent(this, HappyStateActivity.class);
         this.startActivity(myIntent);
     }
 }

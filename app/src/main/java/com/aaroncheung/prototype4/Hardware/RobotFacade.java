@@ -42,7 +42,7 @@ public class RobotFacade {
             @Override
             public void run() {
                 Log.d(TAG, "robot facade start");
-                motors.sendArduino("x");
+                motors.sendArduino("start");
             }
         }, 2000);
     }
