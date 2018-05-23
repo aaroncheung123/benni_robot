@@ -36,14 +36,14 @@ public class HappyStateActivity extends Activity {
         robotState = RobotState.getInstance();
         robotFacade = RobotFacade.getInstance();
 
-
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                begin();
-            }
-        }, 2000);
+        begin();
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                begin();
+//            }
+//        }, 2000);
 
     }
 

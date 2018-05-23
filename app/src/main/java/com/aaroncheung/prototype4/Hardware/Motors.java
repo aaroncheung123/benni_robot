@@ -23,7 +23,7 @@ public class Motors extends ContextWrapper {
 
     private final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
     private final String TAG = "debug_main6";
-    private boolean permissionGranted = false;
+    private boolean permissionGranted;
 
     private UsbManager usbManager;
     private UsbDevice device;
@@ -41,6 +41,7 @@ public class Motors extends ContextWrapper {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         registerReceiver(broadcastReceiver, filter);
+        permissionGranted = false;
         Log.d(TAG, "3");
     }
 
@@ -128,7 +129,6 @@ public class Motors extends ContextWrapper {
     }
 
     public void sendArduino(String s) {
-        //Log.d(TAG, "sender was clicked: " + s);
         Log.d(TAG, "10");
         serialPort.write(s.getBytes());
     }

@@ -42,20 +42,20 @@ public class MainActivity extends Activity {
         faceView = findViewById(R.id.multiFace);
         UsbManager usbManager = (UsbManager) this.getSystemService(this.USB_SERVICE);
         robotState = RobotState.getInstance();
-    }
 
-
-    public void faceClick(View view){
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
         Log.d(TAG, "1");
         robotFacade = RobotFacade.getInstance();
 
         robotFacade.init(this, usbManager);
+    }
 
-        if(robotFacade.getPermission()){
-            Intent myIntent = new Intent(this, HappyStateActivity.class);
-            this.startActivity(myIntent);
-        }
+
+    public void faceClick(View view){
+
+
+        Intent myIntent = new Intent(this, HappyStateActivity.class);
+        this.startActivity(myIntent);
 
 
 
