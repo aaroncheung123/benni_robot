@@ -2,6 +2,7 @@ package com.aaroncheung.prototype4;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,7 +37,14 @@ public class HappyStateActivity extends Activity {
         robotFacade = RobotFacade.getInstance();
 
 
-        begin();
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                begin();
+            }
+        }, 2000);
+
     }
 
     private void begin(){

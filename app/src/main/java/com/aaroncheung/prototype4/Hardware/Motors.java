@@ -21,15 +21,16 @@ import java.util.Map;
 
 public class Motors extends ContextWrapper {
 
-    public final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    public final String TAG = "debug_main4";
+    private final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
+    private final String TAG = "debug_main5";
+    private boolean permissionGranted = false;
 
-    UsbManager usbManager;
-    UsbDevice device;
-    UsbSerialDevice serialPort;
-    UsbDeviceConnection connection;
+    private UsbManager usbManager;
+    private UsbDevice device;
+    private UsbSerialDevice serialPort;
+    private UsbDeviceConnection connection;
+    private Context context;
 
-    Context context;
 
     public Motors(Context base, UsbManager usbManager) {
         super(base);
@@ -76,6 +77,7 @@ public class Motors extends ContextWrapper {
                             serialPort.setParity(UsbSerialInterface.PARITY_NONE);
                             serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
                             serialPort.read(mCallback);
+                            permissionGranted = true;
                             Log.d(TAG, "Serial Connection Opened");
                             Toast.makeText(context, "Serial Connection Opened",
                                     Toast.LENGTH_SHORT).show();
@@ -89,7 +91,7 @@ public class Motors extends ContextWrapper {
                     Log.d("SERIAL", "PERM NOT GRANTED");
                 }
             } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
-                onClickStart();
+                init();
             } else if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_DETACHED)) {
                 onClickStop();
 
@@ -98,7 +100,7 @@ public class Motors extends ContextWrapper {
     };
 
 
-    public boolean onClickStart() {
+    public void init() {
         Log.d(TAG, "start 1");
         //UsbManager usbManager = (UsbManager) context.getSystemService(context.USB_SERVICE);
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
@@ -122,9 +124,10 @@ public class Motors extends ContextWrapper {
                     break;
             }
         }
-        return true;
+    }
 
-
+    public boolean getPermission(){
+        return permissionGranted;
     }
 
     public void sendArduino(String s) {

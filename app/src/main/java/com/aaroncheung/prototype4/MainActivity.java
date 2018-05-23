@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +17,7 @@ import com.aaroncheung.prototype4.States.HappyState;
 import com.aaroncheung.prototype4.States.RobotState;
 
 public class MainActivity extends Activity {
-    public final static String TAG = "debug_main4";
+    public final static String TAG = "debug_main5";
     private UsbManager usbManager;
     private RobotFacade robotFacade;
     private RobotState robotState;
@@ -40,6 +41,7 @@ public class MainActivity extends Activity {
         Log.d(TAG, "onCreate was created ");
         faceView = findViewById(R.id.multiFace);
         UsbManager usbManager = (UsbManager) this.getSystemService(this.USB_SERVICE);
+        robotState = RobotState.getInstance();
     }
 
 
@@ -47,12 +49,16 @@ public class MainActivity extends Activity {
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
         robotFacade = RobotFacade.getInstance();
         robotFacade.init(this, usbManager);
-        robotState = RobotState.getInstance();
-        robotFacade.start();
+
+        //robotFacade.start();
         Log.d(TAG, "fc1");
 
-        Intent myIntent = new Intent(this, HappyStateActivity.class);
-        this.startActivity(myIntent);
+
+
+//        Intent myIntent = new Intent(this, HappyStateActivity.class);
+//        this.startActivity(myIntent);
+
+
     }
 }
 

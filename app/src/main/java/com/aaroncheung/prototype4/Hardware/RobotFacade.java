@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class RobotFacade {
 
-    public final String TAG = "debug_main4";
+    public final String TAG = "debug_main5";
 
     Context context;
     Motors motors;
@@ -27,28 +27,55 @@ public class RobotFacade {
     }
 
     public void init(Context context, UsbManager usbManager){
+        Log.d(TAG, "init1");
         this.context = context;
         motors = new Motors(context, usbManager);
         speech = new Speech(context);
-        start();
+
+        Log.d(TAG, "init2");
+        motors.init();
+
+
+//        final boolean notGranted = true;
+//        while(notGranted){
+//            final Handler handler = new Handler();
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    if(motors.getPermission()){
+//                        notGranted = false;
+//                    }
+//                }
+//            }, 2000);
+//        }
+
+        Log.d(TAG, "robot facade start");
+        motors.sendArduino("p");
+
+
+//        if(motors.init()){
+//            Log.d(TAG, "robot facade start");
+//            motors.sendArduino("p");
+//            //start();
+//        }
+//        else{
+//            Log.d(TAG, "Robot Facade Init Fail");
+//        }
     }
 
     public boolean start(){
-        if(motors.onClickStart()){
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Log.d(TAG, "robot facade start");
-                    motors.sendArduino("start");
-                }
-            }, 2000);
-            return true;
-        }
-        else{
-            return false;
-        }
+        Log.d(TAG, "starting1");
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "robot facade start");
+                motors.sendArduino("start");
+            }
+        }, 2000);
+        return true;
     }
+
 
     public void say(final String robotFacadeMessage){
 
