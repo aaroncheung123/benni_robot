@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class RobotFacade {
 
-    public final String TAG = "debug_main5";
+    public String TAG = "debug_main6";
 
     Context context;
     Motors motors;
@@ -27,53 +27,24 @@ public class RobotFacade {
     }
 
     public void init(Context context, UsbManager usbManager){
-        Log.d(TAG, "init1");
+        Log.d(TAG, "2");
         this.context = context;
         motors = new Motors(context, usbManager);
         speech = new Speech(context);
 
-        Log.d(TAG, "init2");
+        Log.d(TAG, "4");
         motors.init();
-
-
-//        final boolean notGranted = true;
-//        while(notGranted){
-//            final Handler handler = new Handler();
-//            handler.postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    if(motors.getPermission()){
-//                        notGranted = false;
-//                    }
-//                }
-//            }, 2000);
-//        }
-
-        Log.d(TAG, "robot facade start");
-        motors.sendArduino("p");
-
-
-//        if(motors.init()){
-//            Log.d(TAG, "robot facade start");
-//            motors.sendArduino("p");
-//            //start();
-//        }
-//        else{
-//            Log.d(TAG, "Robot Facade Init Fail");
-//        }
     }
 
-    public boolean start(){
-        Log.d(TAG, "starting1");
+    public void start(){
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Log.d(TAG, "robot facade start");
-                motors.sendArduino("start");
+                motors.sendArduino("x");
             }
         }, 2000);
-        return true;
     }
 
 
@@ -87,7 +58,10 @@ public class RobotFacade {
                 speech.say(robotFacadeMessage);
             }
         }, 500);
+    }
 
+    public boolean getPermission(){
+        return motors.getPermission();
     }
 
     public void forward(){

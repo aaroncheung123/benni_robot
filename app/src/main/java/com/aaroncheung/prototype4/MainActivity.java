@@ -17,7 +17,7 @@ import com.aaroncheung.prototype4.States.HappyState;
 import com.aaroncheung.prototype4.States.RobotState;
 
 public class MainActivity extends Activity {
-    public final static String TAG = "debug_main5";
+    public final static String TAG = "debug_main6";
     private UsbManager usbManager;
     private RobotFacade robotFacade;
     private RobotState robotState;
@@ -47,16 +47,16 @@ public class MainActivity extends Activity {
 
     public void faceClick(View view){
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
+        Log.d(TAG, "1");
         robotFacade = RobotFacade.getInstance();
+
         robotFacade.init(this, usbManager);
 
-        //robotFacade.start();
-        Log.d(TAG, "fc1");
+        if(robotFacade.getPermission()){
+            Intent myIntent = new Intent(this, HappyStateActivity.class);
+            this.startActivity(myIntent);
+        }
 
-
-
-//        Intent myIntent = new Intent(this, HappyStateActivity.class);
-//        this.startActivity(myIntent);
 
 
     }
