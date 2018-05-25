@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4.hardware;
+package com.aaroncheung.prototype4.robot;
 
 import android.Manifest;
 import android.app.Activity;
@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class SpeechRecognitionActivity extends Activity implements RecognitionListener {
+public class SpeechRecognition extends Activity implements RecognitionListener {
 
     public final static String TAG = "debug_main4";
     private SpeechRecognizer speech = null;

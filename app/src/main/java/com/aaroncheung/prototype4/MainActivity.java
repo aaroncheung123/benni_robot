@@ -10,7 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.aaroncheung.prototype4.hardware.RobotFacade;
+import com.aaroncheung.prototype4.robot.RobotFacade;
 import com.aaroncheung.prototype4.states.RobotState;
 
 public class MainActivity extends Activity {
@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 
 
     public void faceClick(View view){
-        Intent myIntent = new Intent(this, HappyStateActivity.class);
+        Intent myIntent = new Intent(this, HappyState.class);
         this.startActivity(myIntent);
     }
 }

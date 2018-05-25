@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.aaroncheung.prototype4.hardware.RobotFacade;
+import com.aaroncheung.prototype4.robot.RobotFacade;
 import com.aaroncheung.prototype4.states.RobotState;
 import com.aaroncheung.prototype4.states.SadState;
 
@@ -48,7 +48,7 @@ public class SadStateActivity extends Activity {
     }
 
     public void sadStateFaceClick(View view){
-        Intent myIntent = new Intent(this, HappyStateActivity.class);
+        Intent myIntent = new Intent(this, HappyState.class);
         this.startActivity(myIntent);
     }
 }

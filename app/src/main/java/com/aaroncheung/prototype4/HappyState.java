@@ -6,13 +6,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.aaroncheung.prototype4.hardware.RobotFacade;
-import com.aaroncheung.prototype4.hardware.SpeechRecognitionActivity;
-import com.aaroncheung.prototype4.states.HappyState;
+import com.aaroncheung.prototype4.robot.RobotFacade;
+import com.aaroncheung.prototype4.robot.SpeechRecognition;
 import com.aaroncheung.prototype4.states.RobotState;
 
 
-public class HappyStateActivity extends SpeechRecognitionActivity {
+public class HappyState extends SpeechRecognition {
 
     public final static String TAG = "debug_main4";
     private RobotState robotState;
@@ -34,7 +33,7 @@ public class HappyStateActivity extends SpeechRecognitionActivity {
 
         //--------------------------------------------------
 
-        RobotState.getInstance().setState(new HappyState());
+        RobotState.getInstance().setState(new com.aaroncheung.prototype4.states.HappyState());
         robotState = RobotState.getInstance();
         robotFacade = RobotFacade.getInstance();
 

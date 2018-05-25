@@ -1,11 +1,11 @@
-package com.aaroncheung.prototype4.hardware;
+package com.aaroncheung.prototype4.robot;
 
 import android.content.Context;
 import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.util.Log;
 
-public class RobotFacade {
+public class RobotFacade extends SpeechRecognition {
 
     public String TAG = "debug_main6";
 
