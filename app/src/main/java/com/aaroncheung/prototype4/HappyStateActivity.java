@@ -65,12 +65,12 @@ public class HappyStateActivity extends SpeechRecognition {
 
 
     private void begin(){
-        robotState.explain();
+        //robotState.explain();
         startListening();
     }
 
     public void happyStateFaceClick(View view) {
-        startListening();
+        //startListening();
     }
 
 

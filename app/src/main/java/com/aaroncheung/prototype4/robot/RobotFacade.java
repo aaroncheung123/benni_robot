@@ -36,17 +36,6 @@ public class RobotFacade{
         motors.init();
     }
 
-    public void start(){
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "robot facade start");
-                motors.sendArduino("start");
-            }
-        }, 2000);
-    }
-
 
     public void say(final String robotFacadeMessage){
 

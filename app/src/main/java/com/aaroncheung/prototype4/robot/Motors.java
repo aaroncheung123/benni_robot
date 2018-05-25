@@ -81,7 +81,6 @@ public class Motors extends ContextWrapper {
                             Log.d(TAG, "Serial Connection Opened");
                             Toast.makeText(context, "Serial Connection Opened",
                                     Toast.LENGTH_SHORT).show();
-                            RobotFacade.getInstance().start();
                             permissionGranted = true;
                         } else {
                             Log.d("SERIAL", "PORT NOT OPEN");
