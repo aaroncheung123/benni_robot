@@ -22,7 +22,7 @@ import java.util.Map;
 public class Motors extends ContextWrapper {
 
     private final String ACTION_USB_PERMISSION = "com.hariharan.arduinousb.USB_PERMISSION";
-    private final String TAG = "debug_main6";
+    private final String TAG = "debug_main4";
     private boolean permissionGranted;
 
     private UsbManager usbManager;
@@ -129,7 +129,7 @@ public class Motors extends ContextWrapper {
     }
 
     public void sendArduino(String s) {
-        Log.d(TAG, "10");
+        Log.d(TAG, "Sending Arduino: " + s);
         serialPort.write(s.getBytes());
     }
 

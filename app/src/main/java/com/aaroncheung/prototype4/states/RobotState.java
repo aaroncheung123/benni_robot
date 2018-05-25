@@ -32,21 +32,22 @@ public class RobotState implements State{
 
     @Override
     public void moveForward() {
-
+        RobotState.moveForward();
     }
 
     @Override
     public void moveBackward() {
-
+        RobotState.moveBackward();
     }
 
     @Override
     public void turnRight() {
-
+        RobotState.turnRight();
     }
 
     @Override
     public void turnLeft() {
+        RobotState.turnLeft();
 
     }
 

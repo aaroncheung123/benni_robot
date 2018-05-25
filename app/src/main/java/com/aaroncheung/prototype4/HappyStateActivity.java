@@ -47,15 +47,19 @@ public class HappyStateActivity extends SpeechRecognition {
         if(message.contains("move forward")){
             Log.d(TAG, "move forward");
             RobotState.getInstance().moveForward();
+            startListening();
         }
-        else if(message.contains("move backward")){
+        else if(message.contains("move back")){
             RobotState.getInstance().moveBackward();
+            startListening();
         }
         else if(message.contains("turn right")){
             RobotState.getInstance().turnRight();
+            startListening();
         }
         else if(message.contains("turn left")){
             RobotState.getInstance().turnLeft();
+            startListening();
         }
     }
 
