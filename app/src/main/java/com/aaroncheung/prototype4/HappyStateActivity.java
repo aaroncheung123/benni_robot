@@ -1,7 +1,6 @@
 package com.aaroncheung.prototype4;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -17,12 +16,13 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.aaroncheung.prototype4.hardware.RobotFacade;
+import com.aaroncheung.prototype4.hardware.SpeechRecognitionActivity;
 import com.aaroncheung.prototype4.states.HappyState;
 import com.aaroncheung.prototype4.states.RobotState;
 
 import java.util.ArrayList;
 
-public class HappyStateActivity extends Activity implements RecognitionListener {
+public class HappyStateActivity extends SpeechRecognitionActivity implements RecognitionListener {
 
     public final static String TAG = "debug_main4";
     private RobotState robotState;
