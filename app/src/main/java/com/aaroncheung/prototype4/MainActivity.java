@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 
 
     public void faceClick(View view){
-        Intent myIntent = new Intent(this, HappyState.class);
+        Intent myIntent = new Intent(this, HappyStateActivity.class);
         this.startActivity(myIntent);
     }
 }

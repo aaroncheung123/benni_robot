@@ -48,7 +48,7 @@ public class SadStateActivity extends Activity {
     }
 
     public void sadStateFaceClick(View view){
-        Intent myIntent = new Intent(this, HappyState.class);
+        Intent myIntent = new Intent(this, HappyStateActivity.class);
         this.startActivity(myIntent);
     }
 }

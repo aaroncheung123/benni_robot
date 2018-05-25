@@ -11,7 +11,7 @@ import com.aaroncheung.prototype4.robot.SpeechRecognition;
 import com.aaroncheung.prototype4.states.RobotState;
 
 
-public class HappyState extends SpeechRecognition {
+public class HappyStateActivity extends SpeechRecognition {
 
     public final static String TAG = "debug_main4";
     private RobotState robotState;
@@ -41,11 +41,28 @@ public class HappyState extends SpeechRecognition {
 
     }
 
+    @Override
+    public void processSpeech(String message) {
+        Log.d(TAG, "process speech: " + message);
+        if(message.contains("move forward")){
+            Log.d(TAG, "move forward");
+            RobotState.getInstance().moveForward();
+        }
+        else if(message.contains("move backward")){
+            RobotState.getInstance().moveBackward();
+        }
+        else if(message.contains("turn right")){
+            RobotState.getInstance().turnRight();
+        }
+        else if(message.contains("turn left")){
+            RobotState.getInstance().turnLeft();
+        }
+    }
+
+
     private void begin(){
-        Log.d(TAG, "HAPPYSTATEACTIVITY1");
         robotState.explain();
-        robotFacade.forward();
-        Log.d(TAG, "HAPPYSTATEACTIVITY2");
+        startListening();
     }
 
     public void happyStateFaceClick(View view) {

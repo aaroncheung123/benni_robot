@@ -30,7 +30,7 @@
         </activity>
 
         <activity
-            android:name=".HappyState"
+            android:name=".HappyStateActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
 

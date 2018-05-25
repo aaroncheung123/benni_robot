@@ -22,11 +22,12 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private static final int REQUEST_RECORD_PERMISSION = 100;
+    private boolean onSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        onSwitch = true;
 
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         Log.i(TAG, "isRecognitionAvailable: " + SpeechRecognizer.isRecognitionAvailable(this));
@@ -40,13 +41,16 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     }
 
     public void startListening(){
+        onSwitch = true;
         ActivityCompat.requestPermissions
                 (this,
                         new String[]{Manifest.permission.RECORD_AUDIO},
                         REQUEST_RECORD_PERMISSION);
-
     }
 
+    public void stopListening(){
+        onSwitch = false;
+    }
 
 
     @Override
@@ -126,6 +130,8 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         Log.i(TAG, "onReadyForSpeech");
     }
 
+
+
     @Override
     public void onResults(Bundle results) {
         Log.i(TAG, "onResults");
@@ -136,13 +142,29 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
             text += result + "\n";
 
         Log.i(TAG, matches.get(0));
+        String message = matches.get(0);
+
+        if(onSwitch){
+            startListening();
+            processSpeech(message);
+        }
+        else{
+            processSpeech(message);
+        }
+
+
+
 
         //returnedText.setText(text);
     }
 
+    public void processSpeech(String message){
+
+    }
+
     @Override
     public void onRmsChanged(float rmsdB) {
-        Log.i(TAG, "onRmsChanged: " + rmsdB);
+        Log.i("rms", "onRmsChanged: " + rmsdB);
         //progressBar.setProgress((int) rmsdB);
     }
 

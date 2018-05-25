@@ -8,4 +8,26 @@ public class HappyState implements State {
     public void explain() {
         RobotFacade.getInstance().say("happy");
     }
+
+    @Override
+    public void moveForward() {
+        RobotFacade.getInstance().forward();
+    }
+
+    @Override
+    public void moveBackward() {
+        RobotFacade.getInstance().backward();
+    }
+
+    @Override
+    public void turnRight() {
+        RobotFacade.getInstance().right();
+    }
+
+    @Override
+    public void turnLeft() {
+        RobotFacade.getInstance().left();
+    }
+
+
 }

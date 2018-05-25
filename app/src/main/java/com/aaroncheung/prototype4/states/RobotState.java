@@ -30,5 +30,26 @@ public class RobotState implements State{
         RobotState.explain();
     }
 
+    @Override
+    public void moveForward() {
+
+    }
+
+    @Override
+    public void moveBackward() {
+
+    }
+
+    @Override
+    public void turnRight() {
+
+    }
+
+    @Override
+    public void turnLeft() {
+
+    }
+
+
 }
 
