@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4.Hardware;
+package com.aaroncheung.prototype4.hardware;
 
 import android.Manifest;
 import android.content.Context;

@@ -2,17 +2,15 @@ package com.aaroncheung.prototype4;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.aaroncheung.prototype4.Hardware.RobotFacade;
-import com.aaroncheung.prototype4.States.HappyState;
-import com.aaroncheung.prototype4.States.RobotState;
-import com.aaroncheung.prototype4.States.SadState;
+import com.aaroncheung.prototype4.hardware.RobotFacade;
+import com.aaroncheung.prototype4.states.RobotState;
+import com.aaroncheung.prototype4.states.SadState;
 
 public class SadStateActivity extends Activity {
 

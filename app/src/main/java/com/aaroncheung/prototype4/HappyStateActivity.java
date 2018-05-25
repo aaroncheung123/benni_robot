@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
@@ -17,10 +16,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.aaroncheung.prototype4.Hardware.RobotFacade;
-import com.aaroncheung.prototype4.States.HappyState;
-import com.aaroncheung.prototype4.States.RobotState;
-import com.aaroncheung.prototype4.States.SadState;
+import com.aaroncheung.prototype4.hardware.RobotFacade;
+import com.aaroncheung.prototype4.states.HappyState;
+import com.aaroncheung.prototype4.states.RobotState;
 
 import java.util.ArrayList;
 
@@ -170,7 +168,7 @@ public class HappyStateActivity extends Activity implements RecognitionListener 
         for (String result : matches)
             text += result + "\n";
 
-        Log.i("info", matches.get(0));
+        Log.i(TAG, matches.get(0));
 
         //returnedText.setText(text);
     }

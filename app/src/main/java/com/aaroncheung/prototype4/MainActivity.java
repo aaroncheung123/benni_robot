@@ -4,17 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.aaroncheung.prototype4.Hardware.RobotFacade;
-import com.aaroncheung.prototype4.States.HappyState;
-import com.aaroncheung.prototype4.States.RobotState;
+import com.aaroncheung.prototype4.hardware.RobotFacade;
+import com.aaroncheung.prototype4.states.RobotState;
 
 public class MainActivity extends Activity {
     public final static String TAG = "debug_main6";
