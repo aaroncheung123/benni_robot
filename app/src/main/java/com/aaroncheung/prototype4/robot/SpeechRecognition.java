@@ -60,7 +60,8 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
 
     //--------------------------------------------------
 
-    private String socket_url = "http://192.168.1.144:3000";
+    //private String socket_url = "http://192.168.1.144:3000";
+    private String socket_url = "http://10.37.60.76:3000";
     private String email;
 
     private Socket socket;

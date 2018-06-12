@@ -19,8 +19,12 @@ import org.json.JSONObject;
 public class HttpRequest {
 
     private String TAG = "debug_123";
-    private String LOGIN_URL = "http://192.168.1.144:3000/api/authentication/";
-    private String REGISTER_URL = "http://192.168.1.144:3000/api/authentication";
+//    private String LOGIN_URL = "http://192.168.1.144:3000/api/authentication/";
+//    private String REGISTER_URL = "http://192.168.1.144:3000/api/authentication";
+
+    private String LOGIN_URL = "http://10.37.60.76:3000/api/authentication/";
+    private String REGISTER_URL = "http://10.37.60.76:3000/api/authentication";
+
     private RequestQueue requestQueue;
     private String finalResponse = "0";
     private JSONObject myJSONObject;
