@@ -4,20 +4,36 @@ import android.app.Activity;
 import android.content.Intent;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.aaroncheung.prototype4.Networking.HttpRequest;
+import com.aaroncheung.prototype4.Networking.UserInformationSingleton;
 import com.aaroncheung.prototype4.robot.RobotFacade;
 import com.aaroncheung.prototype4.states.RobotState;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class MainActivity extends Activity {
-    public final static String TAG = "debug_main6";
+    public final static String TAG = "debug_123";
     private UsbManager usbManager;
     private RobotFacade robotFacade;
     private RobotState robotState;
+
+    HttpRequest httpRequest;
+
+    private EditText emailLoginEditText;
+    private EditText passwordEditText;
+
+    private String email;
+    private String password;
 
     ImageView faceView;
 
@@ -35,8 +51,14 @@ public class MainActivity extends Activity {
 
         //--------------------------------------------------
 
+        emailLoginEditText = findViewById(R.id.emailLoginEditText);
+        passwordEditText = findViewById(R.id.passwordLoginEditText);
+        Log.d(TAG, "Login onCreate");
+        httpRequest = new HttpRequest(this);
+
+
         Log.d(TAG, "onCreate was created ");
-        faceView = findViewById(R.id.multiFace);
+        //faceView = findViewById(R.id.multiFace);
         UsbManager usbManager = (UsbManager) this.getSystemService(this.USB_SERVICE);
         robotState = RobotState.getInstance();
 
@@ -48,9 +70,49 @@ public class MainActivity extends Activity {
     }
 
 
-    public void faceClick(View view){
-        Intent myIntent = new Intent(this, HappyStateActivity.class);
-        this.startActivity(myIntent);
+
+    public void loginButtonClick(View view){
+        httpRequest.sendLoginGetRequest(emailLoginEditText.getText().toString());
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    loginCheck();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 3000);
+    }
+
+    public void loginCheck() throws JSONException {
+        JSONObject jsonObject = httpRequest.getMyJSONObject();
+
+        if(jsonObject != null){
+            String databasePassword = jsonObject.get("password").toString();
+            password = passwordEditText.getText().toString();
+
+            if(password.matches(databasePassword)){
+                Toast.makeText(this, "Login Successful",
+                        Toast.LENGTH_LONG).show();
+
+                //Init user info singleton and adding email
+                UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
+                userInfo.setEmail(jsonObject.get("email").toString());
+
+                startActivity(new Intent(MainActivity.this, HappyStateActivity.class));
+            }
+            else{
+                Toast.makeText(this, "Wrong Password",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+        else{
+            Toast.makeText(this, "Account Does Not Exist",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }
 

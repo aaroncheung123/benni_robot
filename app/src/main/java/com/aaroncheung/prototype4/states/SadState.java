@@ -32,4 +32,10 @@ public class SadState implements State {
         RobotFacade.getInstance().say("Turning Left");
         RobotFacade.getInstance().left();
     }
+
+    @Override
+    public void stop(){
+        RobotFacade.getInstance().say("Stopping");
+        RobotFacade.getInstance().stop();
+    }
 }

@@ -50,6 +50,10 @@ public class RobotState implements State{
         RobotState.turnLeft();
 
     }
+    @Override
+    public void stop(){
+        RobotState.stop();
+    }
 
 
 }

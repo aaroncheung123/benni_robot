@@ -7,5 +7,6 @@ public interface State {
     public void moveBackward();
     public void turnRight();
     public void turnLeft();
+    public void stop();
 }
 

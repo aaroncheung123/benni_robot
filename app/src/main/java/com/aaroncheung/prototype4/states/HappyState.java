@@ -1,8 +1,12 @@
 package com.aaroncheung.prototype4.states;
 
+import android.util.Log;
+
 import com.aaroncheung.prototype4.robot.RobotFacade;
 
 public class HappyState implements State {
+
+    String TAG = "debug_123";
 
     @Override
     public void explain() {
@@ -12,6 +16,7 @@ public class HappyState implements State {
 
     @Override
     public void moveForward() {
+        Log.d(TAG, "Happy State Moving Forward");
         RobotFacade.getInstance().say("Moving Forward");
         RobotFacade.getInstance().forward();
     }
@@ -33,6 +38,12 @@ public class HappyState implements State {
     public void turnLeft() {
         RobotFacade.getInstance().say("Turning Left");
         RobotFacade.getInstance().left();
+    }
+
+    @Override
+    public void stop(){
+        RobotFacade.getInstance().say("Stopping");
+        RobotFacade.getInstance().stop();
     }
 
 

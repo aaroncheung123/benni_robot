@@ -14,11 +14,18 @@ import android.util.Log;
 import android.widget.Toast;
 
 
+import com.aaroncheung.prototype4.HappyStateActivity;
+import com.aaroncheung.prototype4.Networking.UserInformationSingleton;
+import com.github.nkzawa.emitter.Emitter;
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class SpeechRecognition extends Activity implements RecognitionListener {
 
-    public final static String TAG = "debug_main4";
+    public final static String TAG = "debug_123";
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private static final int REQUEST_RECORD_PERMISSION = 100;
@@ -38,7 +45,51 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         recognizerIntent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 3);
+
+        //Connecting to Socket IO
+        Log.d(TAG, "SOCKET INIT");
+        email = UserInformationSingleton.getInstance().getEmail();
+        socket.connect();
+        socket.on(email, handleIncomingMessages);
     }
+
+
+    //--------------------------------------------------
+
+    //  SOCKET IO
+
+    //--------------------------------------------------
+
+    private String socket_url = "http://192.168.1.144:3000";
+    private String email;
+
+    private Socket socket;
+    {
+        Log.d(TAG, "Connecting to socket");
+        try {
+            socket = IO.socket(socket_url);
+        } catch (URISyntaxException e) {}
+    }
+
+    private Emitter.Listener handleIncomingMessages = new Emitter.Listener() {
+        @Override
+        public void call(final Object... args) {
+            SpeechRecognition.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, args[0].toString());
+                    processMoveCommands(args[0].toString());
+                }
+            });
+        }
+    };
+
+    public void processMoveCommands(String command){}
+
+    //--------------------------------------------------
+
+
+    //--------------------------------------------------
 
     public void startListening(){
         onSwitch = true;
@@ -48,9 +99,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
                         REQUEST_RECORD_PERMISSION);
     }
 
-    public void stopListening(){
-        onSwitch = false;
-    }
 
 
     @Override
@@ -60,9 +108,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
             case REQUEST_RECORD_PERMISSION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     speech.startListening(recognizerIntent);
-                } else {
-//                    Toast.makeText(this, "Permission Denied!", Toast
-//                            .LENGTH_SHORT).show();
                 }
         }
     }
@@ -91,8 +136,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     @Override
     public void onBeginningOfSpeech() {
         Log.i(TAG, "onBeginningOfSpeech");
-        //progressBar.setIndeterminate(false);
-        //progressBar.setMax(10);
     }
 
     @Override
@@ -103,16 +146,12 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     @Override
     public void onEndOfSpeech() {
         Log.i(TAG, "onEndOfSpeech");
-        //progressBar.setIndeterminate(true);
-        //toggleButton.setChecked(false);
     }
 
     @Override
     public void onError(int errorCode) {
         String errorMessage = getErrorText(errorCode);
         Log.d(TAG, "FAILED " + errorMessage);
-        //returnedText.setText(errorMessage);
-        //toggleButton.setChecked(false);
     }
 
     @Override
@@ -144,28 +183,21 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         Log.i(TAG, matches.get(0));
         String message = matches.get(0);
 
-        if(onSwitch){
-            startListening();
-            processSpeech(message);
-        }
-        else{
-            processSpeech(message);
-        }
-
-
-
-
-        //returnedText.setText(text);
+//        if(onSwitch){
+//            startListening();
+//            processSpeech(message);
+//        }
+//        else{
+//            processSpeech(message);
+//        }
+        processSpeech(message);
     }
 
-    public void processSpeech(String message){
-
-    }
+    public void processSpeech(String message){}
 
     @Override
     public void onRmsChanged(float rmsdB) {
         Log.i("rms", "onRmsChanged: " + rmsdB);
-        //progressBar.setProgress((int) rmsdB);
     }
 
     public static String getErrorText(int errorCode) {
