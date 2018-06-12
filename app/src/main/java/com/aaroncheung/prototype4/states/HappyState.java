@@ -9,6 +9,7 @@ public class HappyState implements State {
         RobotFacade.getInstance().say("happy");
     }
 
+
     @Override
     public void moveForward() {
         RobotFacade.getInstance().say("Moving Forward");
@@ -26,6 +27,7 @@ public class HappyState implements State {
         RobotFacade.getInstance().say("Turning Right");
         RobotFacade.getInstance().right();
     }
+
 
     @Override
     public void turnLeft() {

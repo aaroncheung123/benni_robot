@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class RobotFacade{
 
-    public String TAG = "debug_main6";
+    public String TAG = "debug_main4";
 
     Context context;
     Motors motors;
@@ -62,7 +62,7 @@ public class RobotFacade{
             public void run() {
                 motors.sendArduino("z");
             }
-        }, 2000);
+        }, 7000);
     }
     public void backward(){
         motors.sendArduino("s");
@@ -73,7 +73,7 @@ public class RobotFacade{
             public void run() {
                 motors.sendArduino("z");
             }
-        }, 2000);
+        }, 7000);
     }
     public void left(){
         motors.sendArduino("a");
@@ -84,7 +84,7 @@ public class RobotFacade{
             public void run() {
                 motors.sendArduino("z");
             }
-        }, 2000);
+        }, 7000);
     }
     public void right(){
         motors.sendArduino("d");
@@ -95,7 +95,7 @@ public class RobotFacade{
             public void run() {
                 motors.sendArduino("z");
             }
-        }, 2000);
+        }, 7000);
     }
     public void stop(){
         motors.sendArduino("z");

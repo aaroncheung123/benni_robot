@@ -8,7 +8,7 @@ import java.util.Locale;
 
 public class Speech {
 
-    public final String TAG = "debug_main3";
+    public final String TAG = "debug_main4";
     private TextToSpeech mTTS;
 
     public Speech(Context context) {
