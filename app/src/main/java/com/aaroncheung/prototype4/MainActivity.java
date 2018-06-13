@@ -89,18 +89,23 @@ public class MainActivity extends Activity {
 
     public void loginCheck() throws JSONException {
         JSONObject jsonObject = httpRequest.getMyJSONObject();
+        JSONObject jsonObjectInfo = (JSONObject) jsonObject.get("info");
+        JSONObject jsonObjectProgress = (JSONObject) jsonObject.get("progressNumbers");
 
+        //CHECKING IF ACCOUNT EXISTS
         if(jsonObject != null){
-            String databasePassword = jsonObject.get("password").toString();
+            String databasePassword = jsonObjectInfo.get("password").toString();
             password = passwordEditText.getText().toString();
 
+            //CHECKING IF PASSWORDS MATCH
             if(password.matches(databasePassword)){
                 Toast.makeText(this, "Login Successful",
                         Toast.LENGTH_LONG).show();
 
-                //Init user info singleton and adding email
+
+                //INITIALIZING SINGLETON INFORMATION
                 UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
-                userInfo.setEmail(jsonObject.get("email").toString());
+                userInfo.setEmail(jsonObjectInfo.get("email").toString());
 
                 startActivity(new Intent(MainActivity.this, HappyStateActivity.class));
             }

@@ -106,7 +106,7 @@ public class HappyStateActivity extends SpeechRecognition {
     }
 
     public void happyStateFaceClick(View view) {
-        startListening();
+        //startListening();
     }
 
 
