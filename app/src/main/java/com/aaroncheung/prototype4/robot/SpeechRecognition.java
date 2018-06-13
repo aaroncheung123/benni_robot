@@ -29,12 +29,10 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private static final int REQUEST_RECORD_PERMISSION = 100;
-    private boolean onSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        onSwitch = true;
 
         speech = SpeechRecognizer.createSpeechRecognizer(this);
         Log.i(TAG, "isRecognitionAvailable: " + SpeechRecognizer.isRecognitionAvailable(this));
@@ -60,15 +58,14 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
 
     //--------------------------------------------------
 
-    //private String socket_url = "http://192.168.1.144:3000";
-    private String socket_url = "http://10.37.60.76:3000";
+    private String url = UserInformationSingleton.getInstance().getSERVER_URL();
     private String email;
 
     private Socket socket;
     {
         Log.d(TAG, "Connecting to socket");
         try {
-            socket = IO.socket(socket_url);
+            socket = IO.socket(url);
         } catch (URISyntaxException e) {}
     }
 
@@ -93,7 +90,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     public void startListening(){
-        onSwitch = true;
         ActivityCompat.requestPermissions
                 (this,
                         new String[]{Manifest.permission.RECORD_AUDIO},

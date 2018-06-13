@@ -3,6 +3,7 @@ package com.aaroncheung.prototype4.Networking;
 public class UserInformationSingleton {
 
     private String email;
+    private String SERVER_URL = "https://guarded-savannah-87082.herokuapp.com/";
 
     private static UserInformationSingleton instance = null;
     private UserInformationSingleton() {
@@ -23,6 +24,9 @@ public class UserInformationSingleton {
         return email;
     }
 
+    public String getSERVER_URL(){
+        return SERVER_URL;
+    }
 
 
 
