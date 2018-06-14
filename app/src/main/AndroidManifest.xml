@@ -28,16 +28,15 @@
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
         </activity>
-
         <activity
             android:name=".HappyStateActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
-
-        <activity android:name=".SadStateActivity"
+        <activity
+            android:name=".SadStateActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape"></activity>
-
+            android:screenOrientation="landscape" />
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
