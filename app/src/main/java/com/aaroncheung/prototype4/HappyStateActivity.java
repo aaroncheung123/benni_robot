@@ -27,9 +27,10 @@ public class HappyStateActivity extends SpeechRecognition {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_happy_state);
 
         //--------------------------------------------------
+
+        setContentView(R.layout.activity_happy_state);
 
 
         RobotState.getInstance().setState(new com.aaroncheung.prototype4.states.HappyState());
@@ -73,7 +74,7 @@ public class HappyStateActivity extends SpeechRecognition {
     }
 
     @Override
-    public void processMoveCommands(String command) {
+    public void processCommands(String command) {
         Log.d(TAG, "process move: " + command);
         if(command.matches("forward")){
             Log.d(TAG, "move forward");

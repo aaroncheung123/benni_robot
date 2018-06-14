@@ -1,27 +1,52 @@
 package com.aaroncheung.prototype4;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.view.KeyEvent;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
+import com.aaroncheung.prototype4.robot.RobotFacade;
+import com.aaroncheung.prototype4.robot.SpeechRecognition;
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
 import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends SpeechRecognition {
+
+    public final static String TAG = "debug_123";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //--------------------------------------------------
+        //This makes it fullscreen mode!!!!
+        //--------------------------------------------------
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        //************************
+
         setContentView(R.layout.activity_chat);
 
-        final TextView conversation = findViewById(R.id.conversation);
-        final EditText userInput = findViewById(R.id.user_input);
+    }
+
+    public void chatFaceClick(View view){
+        startListening();
+    }
+
+    @Override
+    public void processSpeech(String message) {
+
+        //--------------------------------------------------
+        //IBM ASSISTANT CODE
+        //--------------------------------------------------
+        Log.d(TAG, message);
 
         final ConversationService myConversationService =
                 new ConversationService(
@@ -31,70 +56,33 @@ public class ChatActivity extends AppCompatActivity {
                 );
 
 
-
-        userInput.setOnEditorActionListener(new TextView
-                .OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView tv, int action, KeyEvent keyEvent) {
-                if(action == EditorInfo.IME_ACTION_DONE) {
-                    // More code here
-                    final String inputText = userInput.getText().toString();
-
-                    conversation.append(
-                            Html.fromHtml("<p><b>You:</b> " + inputText + "</p>")
-                    );
-
-                    // Optionally, clear edittext
-                    userInput.setText("");
-
-                    MessageRequest request = new MessageRequest.Builder()
-                            .inputText(inputText)
-                            .build();
+        MessageRequest request = new MessageRequest.Builder()
+                .inputText(message)
+                .build();
 
 
-                    myConversationService
-                            .message(getString(R.string.workspace), request)
-                            .enqueue(new ServiceCallback<MessageResponse>() {
-                                @Override
-                                public void onResponse(MessageResponse response) {
-                                    // More code here
-                                    final String outputText = response.getText().get(0);
+        myConversationService
+                .message(getString(R.string.workspace), request)
+                .enqueue(new ServiceCallback<MessageResponse>() {
+                    @Override
+                    public void onResponse(MessageResponse response) {
+                        // More code here
+                        final String outputText = response.getText().get(0);
 
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            conversation.append(
-                                                    Html.fromHtml("<p><b>Bot:</b> " +
-                                                            outputText + "</p>")
-                                            );
-                                        }
-                                    });
-                                }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.d(TAG, outputText);
+                                RobotFacade.getInstance().say(outputText);
+                            }
+                        });
+                    }
 
-                                @Override
-                                public void onFailure(Exception e) {}
-                            });
-                }
-                return false;
-            }
-        });
+                    @Override
+                    public void onFailure(Exception e) {}
+                });
 
 
-
-
-
-
-
-
-
-
+        //****
     }
-
-
-
-
-
-
-
-
 }

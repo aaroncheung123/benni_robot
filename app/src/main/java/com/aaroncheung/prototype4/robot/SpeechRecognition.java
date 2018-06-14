@@ -11,10 +11,8 @@ import android.speech.SpeechRecognizer;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
-import android.widget.Toast;
 
 
-import com.aaroncheung.prototype4.HappyStateActivity;
 import com.aaroncheung.prototype4.Networking.UserInformationSingleton;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
@@ -76,13 +74,13 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
                 @Override
                 public void run() {
                     Log.d(TAG, args[0].toString());
-                    processMoveCommands(args[0].toString());
+                    processCommands(args[0].toString());
                 }
             });
         }
     };
 
-    public void processMoveCommands(String command){}
+    public void processCommands(String command){}
 
     //--------------------------------------------------
 
@@ -90,6 +88,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     public void startListening(){
+        Log.d(TAG, "LISTENING");
         ActivityCompat.requestPermissions
                 (this,
                         new String[]{Manifest.permission.RECORD_AUDIO},

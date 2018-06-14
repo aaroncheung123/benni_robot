@@ -37,16 +37,16 @@ public class RobotFacade{
     }
 
 
-    public void say(final String robotFacadeMessage){
-
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d(TAG, "say1");
-                speech.say(robotFacadeMessage);
-            }
-        }, 500);
+    public void say(String robotFacadeMessage){
+        speech.say(robotFacadeMessage);
+//        final Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.d(TAG, "say1");
+//                speech.say(robotFacadeMessage);
+//            }
+//        }, 500);
     }
 
     public boolean getPermission(){
@@ -66,36 +66,12 @@ public class RobotFacade{
     }
     public void backward(){
         motors.sendArduino("s");
-
-//        final Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                motors.sendArduino("z");
-//            }
-//        }, 7000);
     }
     public void left(){
         motors.sendArduino("a");
-
-//        final Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                motors.sendArduino("z");
-//            }
-//        }, 7000);
     }
     public void right(){
         motors.sendArduino("d");
-
-//        final Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                motors.sendArduino("z");
-//            }
-//        }, 7000);
     }
     public void stop(){
         motors.sendArduino("z");

@@ -22,15 +22,16 @@ public class SadStateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //This makes it fullscreen mode!!!!
+        //This makes it fullscreen mode!!!! (Make sure setContentView is after this code)
         //--------------------------------------------------
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_sad_state);
 
         //--------------------------------------------------
+
+        setContentView(R.layout.activity_sad_state);
 
         RobotState.getInstance().setState(new SadState());
         robotState = RobotState.getInstance();
