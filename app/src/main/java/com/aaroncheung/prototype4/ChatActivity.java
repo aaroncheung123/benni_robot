@@ -16,6 +16,7 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 public class ChatActivity extends SpeechRecognition {
 
     public final static String TAG = "debug_123";
+    ConversationService myConversationService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public class ChatActivity extends SpeechRecognition {
 
         setContentView(R.layout.activity_chat);
 
+        myConversationService =
+                new ConversationService(
+                        "2018-06-14",
+                        getString(R.string.username),
+                        getString(R.string.password)
+                );
+
     }
 
     public void chatFaceClick(View view){
@@ -47,13 +55,6 @@ public class ChatActivity extends SpeechRecognition {
         //IBM ASSISTANT CODE
         //--------------------------------------------------
         Log.d(TAG, message);
-
-        final ConversationService myConversationService =
-                new ConversationService(
-                        "2018-06-14",
-                        getString(R.string.username),
-                        getString(R.string.password)
-                );
 
 
         MessageRequest request = new MessageRequest.Builder()
