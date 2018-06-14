@@ -21,7 +21,7 @@ import com.aaroncheung.prototype4.states.RobotState;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends Activity {
+public class LoginActivity extends Activity {
     public final static String TAG = "debug_123";
     private UsbManager usbManager;
     private RobotFacade robotFacade;
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         //--------------------------------------------------
 
@@ -107,7 +107,7 @@ public class MainActivity extends Activity {
                 UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
                 userInfo.setEmail(jsonObjectInfo.get("email").toString());
 
-                startActivity(new Intent(MainActivity.this, HappyStateActivity.class));
+                startActivity(new Intent(LoginActivity.this, HappyStateActivity.class));
             }
             else{
                 Toast.makeText(this, "Wrong Password",
