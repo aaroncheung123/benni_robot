@@ -88,7 +88,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     public void startListening(){
-        Log.d(TAG, "LISTENING");
+        Log.d(TAG, "startListening");
         ActivityCompat.requestPermissions
                 (this,
                         new String[]{Manifest.permission.RECORD_AUDIO},

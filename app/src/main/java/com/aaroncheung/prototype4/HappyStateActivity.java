@@ -2,20 +2,26 @@ package com.aaroncheung.prototype4;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.aaroncheung.prototype4.robot.RobotFacade;
 import com.aaroncheung.prototype4.robot.SpeechRecognition;
 import com.aaroncheung.prototype4.states.RobotState;
-
+import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
+import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
+import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
+import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
 
 public class HappyStateActivity extends SpeechRecognition {
 
     public final static String TAG = "debug_123";
     private RobotState robotState;
+    private ConversationService myConversationService = null;
 
 
     @Override
@@ -33,12 +39,17 @@ public class HappyStateActivity extends SpeechRecognition {
 
         setContentView(R.layout.activity_happy_state);
 
+        //IBM
+        myConversationService =
+                new ConversationService(
+                        "2018-06-14",
+                        getString(R.string.username),
+                        getString(R.string.password)
+                );
+
 
         RobotState.getInstance().setState(new com.aaroncheung.prototype4.states.HappyState());
         robotState = RobotState.getInstance();
-
-        begin();
-
     }
 
     @Override
@@ -67,18 +78,18 @@ public class HappyStateActivity extends SpeechRecognition {
             startListening();
         }
         else if(message.contains("stop listening")){
-            onStop();
+            onPause();
         }
         else{
-            startListening();
+            IBMProcessSpeech(message);
         }
     }
 
     @Override
     public void processSocketIOCommands(String command) {
-        Log.d(TAG, "process move: " + command);
-        if(command.matches("chat activity")){
-            startActivity(new Intent(HappyStateActivity.this, ChatActivity.class));
+        Log.d(TAG, "process command: " + command);
+        if(command.matches("chat")){
+            startListening();
         }
         else if(command.matches("forward")){
             Log.d(TAG, "move forward");
@@ -100,16 +111,57 @@ public class HappyStateActivity extends SpeechRecognition {
             startListening();
         }
         else if(command.matches("stop listening")){
-            onStop();
+            onPause();
         }
 
     }
 
-    private void begin(){
-        Log.d(TAG, "HAPPY ACTIVITY");
-        //robotState.explain();
-        //startListening();
+
+    //--------------------------------------------------
+    //IBM ASSISTANT CODE
+    //--------------------------------------------------
+
+    public void IBMProcessSpeech(String message){
+
+        Log.d(TAG, message);
+        MessageRequest request = new MessageRequest.Builder()
+                .inputText(message)
+                .build();
+
+
+        myConversationService
+                .message(getString(R.string.workspace), request)
+                .enqueue(new ServiceCallback<MessageResponse>() {
+                    @Override
+                    public void onResponse(MessageResponse response) {
+                        // More code here
+                        final String outputText = response.getText().get(0);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.d(TAG, outputText);
+                                RobotFacade.getInstance().say(outputText);
+                                        final Handler handler = new Handler();
+                                        handler.postDelayed(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                startListening();
+                                            }
+                                        }, 4000);
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {}
+                });
+
+
+        //****
     }
+
 
     public void happyStateFaceClick(View view) {
         //startListening();
