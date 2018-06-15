@@ -30,6 +30,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private static final int REQUEST_RECORD_PERMISSION = 100;
+    protected boolean chatActivityOpen = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +107,17 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     public void startListening(){
-        Log.d(TAG, "startListening");
-        ActivityCompat.requestPermissions
-                (this,
-                        new String[]{Manifest.permission.RECORD_AUDIO},
-                        REQUEST_RECORD_PERMISSION);
+        if(chatActivityOpen){
+            Log.d(TAG, "startListening");
+            ActivityCompat.requestPermissions
+                    (this,
+                            new String[]{Manifest.permission.RECORD_AUDIO},
+                            REQUEST_RECORD_PERMISSION);
+        }
+        else{
+            onDestroy();
+        }
+
     }
 
 

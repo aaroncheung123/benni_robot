@@ -26,6 +26,7 @@ public class HappyStateActivity extends SpeechRecognition {
     private ConversationService myConversationService = null;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,9 @@ public class HappyStateActivity extends SpeechRecognition {
     public void processSpeech(String message) {
         Log.d(TAG, "process speech: " + message);
 
+        Log.d(TAG, String.valueOf(chatActivityOpen));
+
+
         if(message.contains("move forward")){
             Log.d(TAG, "move forward");
             robotState.moveForward();
@@ -85,13 +89,21 @@ public class HappyStateActivity extends SpeechRecognition {
         else{
             IBMProcessSpeech(message);
         }
+
+
     }
 
     @Override
     public void processSocketIOCommands(String command) {
         Log.d(TAG, "process command: " + command);
-        if(command.matches("chat")){
+
+
+        if(command.matches("open chat")){
+            chatActivityOpen = true;
             startListening();
+        }
+        else if(command.matches("exit chat")){
+            chatActivityOpen = false;
         }
         else if(command.matches("forward")){
             Log.d(TAG, "move forward");
@@ -110,7 +122,7 @@ public class HappyStateActivity extends SpeechRecognition {
             robotState.stop();
         }
         else if(command.matches("listen")){
-            startListening();
+            chatActivityOpen = true;
         }
         else if(command.matches("stop listening")){
             onPause();
