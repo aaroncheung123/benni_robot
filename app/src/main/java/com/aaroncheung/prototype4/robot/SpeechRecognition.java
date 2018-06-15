@@ -166,6 +166,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     public void onError(int errorCode) {
         String errorMessage = getErrorText(errorCode);
         Log.d(TAG, "FAILED " + errorMessage);
+        startListening();
     }
 
     @Override
