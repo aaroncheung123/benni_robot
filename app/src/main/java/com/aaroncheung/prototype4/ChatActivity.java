@@ -16,7 +16,7 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 public class ChatActivity extends SpeechRecognition {
 
     public final static String TAG = "debug_123";
-    ConversationService myConversationService;
+    private ConversationService myConversationService = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +55,6 @@ public class ChatActivity extends SpeechRecognition {
         //IBM ASSISTANT CODE
         //--------------------------------------------------
         Log.d(TAG, message);
-
-
         MessageRequest request = new MessageRequest.Builder()
                 .inputText(message)
                 .build();

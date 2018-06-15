@@ -74,13 +74,13 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
                 @Override
                 public void run() {
                     Log.d(TAG, args[0].toString());
-                    processCommands(args[0].toString());
+                    processSocketIOCommands(args[0].toString());
                 }
             });
         }
     };
 
-    public void processCommands(String command){}
+    public void processSocketIOCommands(String command){}
 
     //--------------------------------------------------
 

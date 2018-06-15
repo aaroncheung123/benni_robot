@@ -1,5 +1,6 @@
 package com.aaroncheung.prototype4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,7 +67,7 @@ public class HappyStateActivity extends SpeechRecognition {
             startListening();
         }
         else if(message.contains("stop listening")){
-            onPause();
+            onStop();
         }
         else{
             startListening();
@@ -74,9 +75,12 @@ public class HappyStateActivity extends SpeechRecognition {
     }
 
     @Override
-    public void processCommands(String command) {
+    public void processSocketIOCommands(String command) {
         Log.d(TAG, "process move: " + command);
-        if(command.matches("forward")){
+        if(command.matches("chat activity")){
+            startActivity(new Intent(HappyStateActivity.this, ChatActivity.class));
+        }
+        else if(command.matches("forward")){
             Log.d(TAG, "move forward");
             robotState.moveForward();
         }
@@ -96,8 +100,9 @@ public class HappyStateActivity extends SpeechRecognition {
             startListening();
         }
         else if(command.matches("stop listening")){
-            onPause();
+            onStop();
         }
+
     }
 
     private void begin(){

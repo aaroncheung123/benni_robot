@@ -107,8 +107,8 @@ public class LoginActivity extends Activity {
                 UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
                 userInfo.setEmail(jsonObjectInfo.get("email").toString());
 
-                //startActivity(new Intent(LoginActivity.this, HappyStateActivity.class));
-                startActivity(new Intent(LoginActivity.this, ChatActivity.class));
+                startActivity(new Intent(LoginActivity.this, HappyStateActivity.class));
+                //startActivity(new Intent(LoginActivity.this, ChatActivity.class));
             }
             else{
                 Toast.makeText(this, "Wrong Password",
