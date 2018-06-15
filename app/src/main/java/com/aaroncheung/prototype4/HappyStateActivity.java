@@ -16,6 +16,8 @@ import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
 import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
+import org.json.JSONException;
+
 
 public class HappyStateActivity extends SpeechRecognition {
 
@@ -142,7 +144,14 @@ public class HappyStateActivity extends SpeechRecognition {
                             public void run() {
                                 Log.d(TAG, outputText);
                                 RobotFacade.getInstance().say(outputText);
-                                        final Handler handler = new Handler();
+
+                                //Sending a +1 for chatProgress score
+                                try {
+                                    attemptSend("add chatProgress");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                final Handler handler = new Handler();
                                         handler.postDelayed(new Runnable() {
                                             @Override
                                             public void run() {

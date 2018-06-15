@@ -10,6 +10,7 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.text.TextUtils;
 import android.util.Log;
 
 
@@ -17,6 +18,8 @@ import com.aaroncheung.prototype4.Networking.UserInformationSingleton;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -79,6 +82,21 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
             });
         }
     };
+
+    protected void attemptSend(String message) throws JSONException {
+        if (TextUtils.isEmpty(message)) {
+            return;
+        }
+        String finalMessage = email + ":" + message;
+        Log.d(TAG, finalMessage);
+        socket.emit("message", finalMessage);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        socket.disconnect();
+    }
 
     public void processSocketIOCommands(String command){}
 

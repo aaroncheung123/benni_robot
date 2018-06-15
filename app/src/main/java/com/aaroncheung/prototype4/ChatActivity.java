@@ -13,6 +13,8 @@ import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
 import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
+import org.json.JSONException;
+
 public class ChatActivity extends SpeechRecognition {
 
     public final static String TAG = "debug_123";
@@ -73,6 +75,11 @@ public class ChatActivity extends SpeechRecognition {
                             public void run() {
                                 Log.d(TAG, outputText);
                                 RobotFacade.getInstance().say(outputText);
+                                try {
+                                    attemptSend("question +1");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         });
                     }
