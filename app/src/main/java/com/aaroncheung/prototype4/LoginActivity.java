@@ -10,13 +10,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.aaroncheung.prototype4.Networking.HttpRequest;
-import com.aaroncheung.prototype4.Networking.UserInformationSingleton;
+import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
 import com.aaroncheung.prototype4.robot.RobotFacade;
-import com.aaroncheung.prototype4.states.RobotState;
 
 import org.json.JSONException;
 import org.json.JSONObject;

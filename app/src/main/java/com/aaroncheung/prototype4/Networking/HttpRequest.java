@@ -3,6 +3,7 @@ package com.aaroncheung.prototype4.Networking;
 import android.content.Context;
 import android.util.Log;
 
+import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;

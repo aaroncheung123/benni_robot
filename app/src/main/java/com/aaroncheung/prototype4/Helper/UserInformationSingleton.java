@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4.Networking;
+package com.aaroncheung.prototype4.Helper;
 
 public class UserInformationSingleton {
 

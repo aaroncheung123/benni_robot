@@ -118,7 +118,7 @@ public class HappyStateActivity extends SpeechRecognition {
     public void processSocketIOCommands(String command) {
         Log.d(TAG, "process command: " + command);
 
-        if(command.matches("open chat")){
+        if(command.matches("listen")){
             startListening();
         }
         else if(command.matches("stop listening")){
