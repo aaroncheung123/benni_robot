@@ -89,8 +89,15 @@ public class LoginActivity extends Activity {
 
     public void loginCheck() throws JSONException {
         JSONObject jsonObject = httpRequest.getMyJSONObject();
-        JSONObject jsonObjectInfo = (JSONObject) jsonObject.get("info");
-        JSONObject jsonObjectProgress = (JSONObject) jsonObject.get("progressNumbers");
+        if(jsonObject == null){
+            Toast.makeText(this, "Please Connect to Wifi",
+                    Toast.LENGTH_LONG).show();
+        }
+        else{
+            JSONObject jsonObjectInfo = (JSONObject) jsonObject.get("info");
+            JSONObject jsonObjectProgress = (JSONObject) jsonObject.get("progressNumbers");
+        }
+
 
         //CHECKING IF ACCOUNT EXISTS
         if(jsonObject != null){

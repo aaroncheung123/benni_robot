@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.aaroncheung.prototype4.robot.RobotFacade;
 import com.aaroncheung.prototype4.robot.SpeechRecognition;
@@ -24,6 +25,7 @@ public class HappyStateActivity extends SpeechRecognition {
     public final static String TAG = "debug_123";
     private RobotState robotState;
     private ConversationService myConversationService = null;
+    private ImageView displayFace;
 
 
 
@@ -31,16 +33,23 @@ public class HappyStateActivity extends SpeechRecognition {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //This makes it fullscreen mode!!!!
+        //--------------------------------------------------
+        //
+        // This makes it fullscreen mode!!!!
+        //
         //--------------------------------------------------
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        //--------------------------------------------------
+        //************************
+
+
+        //************************
 
         setContentView(R.layout.activity_happy_state);
+        displayFace = findViewById(R.id.displayFace);
 
         //IBM
         myConversationService =
@@ -55,6 +64,11 @@ public class HappyStateActivity extends SpeechRecognition {
         robotState = RobotState.getInstance();
     }
 
+    //--------------------------------------------------
+    //
+    // Speech recognition processes the speech
+    //
+    //--------------------------------------------------
     @Override
     public void processSpeech(String message) {
         Log.d(TAG, "process speech: " + message);
@@ -87,45 +101,90 @@ public class HappyStateActivity extends SpeechRecognition {
         else{
             IBMProcessSpeech(message);
         }
-
-
     }
 
+    //************************
+
+
+    //************************
+
+
+    //--------------------------------------------------
+    //
+    // Socket IO processes the speech
+    //
+    //--------------------------------------------------
     @Override
     public void processSocketIOCommands(String command) {
         Log.d(TAG, "process command: " + command);
 
-
         if(command.matches("open chat")){
             startListening();
-        }
-        else if(command.matches("exit chat")){
-        }
-        else if(command.matches("forward")){
-            Log.d(TAG, "move forward");
-            robotState.moveForward();
-        }
-        else if(command.matches("backward")){
-            robotState.moveBackward();
-        }
-        else if(command.matches("right")){
-            robotState.turnRight();
-        }
-        else if(command.matches("left")){
-            robotState.turnLeft();
-        }
-        else if(command.matches("stop")){
-            robotState.stop();
         }
         else if(command.matches("stop listening")){
             onPause();
         }
+        processEmotions(command);
+        processMovement(command);
 
+    }
+
+    //--------------------------------------------------
+    //
+    // Changes emotions based on emotional state
+    //
+    //--------------------------------------------------
+    public void processEmotions(String emotion){
+        if(emotion.matches("happy")){
+            Log.d(TAG, "process Emotions: " + emotion);
+            displayFace.setImageResource(R.drawable.happyface);
+        }
+        else if(emotion.matches("bored")){
+            Log.d(TAG, "process Emotions: " + emotion);
+            displayFace.setImageResource(R.drawable.neutral);
+        }
+        else if(emotion.matches("sad")){
+            Log.d(TAG, "process Emotions: " + emotion);
+            displayFace.setImageResource(R.drawable.sadface);
+        }
+        else if(emotion.matches("mad")){
+            Log.d(TAG, "process Emotions: " + emotion);
+            displayFace.setImageResource(R.drawable.angry);
+        }
+        else if(emotion.matches("broken")){
+            Log.d(TAG, "process Emotions: " + emotion);
+            displayFace.setImageResource(R.drawable.tired);
+        }
+    }
+
+    //--------------------------------------------------
+    //
+    // Drive controls
+    //
+    //--------------------------------------------------
+    public void processMovement(String movement){
+        if(movement.matches("forward")){
+            robotState.moveForward();
+        }
+        else if(movement.matches("backward")){
+            robotState.moveBackward();
+        }
+        else if(movement.matches("right")){
+            robotState.turnRight();
+        }
+        else if(movement.matches("left")){
+            robotState.turnLeft();
+        }
+        else if(movement.matches("stop")){
+            robotState.stop();
+        }
     }
 
 
     //--------------------------------------------------
-    //IBM ASSISTANT CODE
+    //
+    // IBM ASSISTANT CODE
+    //
     //--------------------------------------------------
 
     public void IBMProcessSpeech(String message){
@@ -171,10 +230,12 @@ public class HappyStateActivity extends SpeechRecognition {
                     @Override
                     public void onFailure(Exception e) {}
                 });
-
-
-        //****
     }
+
+    //************************
+
+
+    //************************
 
 
     public void happyStateFaceClick(View view) {

@@ -7,7 +7,7 @@
     tools:context=".HappyStateActivity">
 
     <ImageView
-        android:id="@+id/happyStateFace"
+        android:id="@+id/displayFace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
