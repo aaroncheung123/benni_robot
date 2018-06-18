@@ -22,7 +22,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_happy_state.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_happy_state.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,12 +44,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HappyStateActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HappyStateActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="154" column="55" lean-forward="false" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
-              <folding />
+            <state relative-caret-position="2145">
+              <caret line="160" column="53" lean-forward="false" selection-start-line="160" selection-start-column="53" selection-end-line="160" selection-end-column="53" />
+              <folding>
+                <element signature="e#1830#1858#0" expanded="true" />
+                <element signature="e#1884#1912#0" expanded="true" />
+                <element signature="e#6238#6267#0" expanded="true" />
+                <element signature="e#6603#7650#0" expanded="true" />
+                <element signature="e#7297#7585#0" expanded="true" />
+                <element signature="e#7584#7585#0" expanded="true" />
+                <element signature="e#7649#7650#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="102" column="31" lean-forward="true" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+            <state relative-caret-position="95">
+              <caret line="83" column="48" lean-forward="false" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -93,6 +100,7 @@
       <find>busy</find>
       <find>stop</find>
       <find>listening</find>
+      <find>progress</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2133,8 +2141,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/ChatActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/SpeechRecognition.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_happy_state.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" />
       </list>
     </option>
   </component>
@@ -2435,10 +2443,10 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.50429183" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32806325" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.49570817" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32806325" sideWeight="0.49570817" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2529,7 +2537,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="26" column="8" lean-forward="false" selection-start-line="26" selection-start-column="8" selection-end-line="28" selection-end-column="60" />
-          <folding />
+          <folding>
+            <element signature="e#1830#1858#0" expanded="true" />
+            <element signature="e#1884#1912#0" expanded="true" />
+            <element signature="e#6238#6267#0" expanded="true" />
+            <element signature="e#6603#7650#0" expanded="true" />
+            <element signature="e#7297#7585#0" expanded="true" />
+            <element signature="e#7584#7585#0" expanded="true" />
+            <element signature="e#7649#7650#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2576,7 +2592,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1830#1858#0" expanded="true" />
+            <element signature="e#1884#1912#0" expanded="true" />
+            <element signature="e#6238#6267#0" expanded="true" />
+            <element signature="e#6603#7650#0" expanded="true" />
+            <element signature="e#7297#7585#0" expanded="true" />
+            <element signature="e#7584#7585#0" expanded="true" />
+            <element signature="e#7649#7650#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2654,7 +2678,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1830#1858#0" expanded="true" />
+            <element signature="e#1884#1912#0" expanded="true" />
+            <element signature="e#6238#6267#0" expanded="true" />
+            <element signature="e#6603#7650#0" expanded="true" />
+            <element signature="e#7297#7585#0" expanded="true" />
+            <element signature="e#7584#7585#0" expanded="true" />
+            <element signature="e#7649#7650#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2912,19 +2944,27 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="154" column="55" lean-forward="false" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
+        <state relative-caret-position="95">
+          <caret line="83" column="48" lean-forward="false" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="102" column="31" lean-forward="true" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="2145">
+          <caret line="160" column="53" lean-forward="false" selection-start-line="160" selection-start-column="53" selection-end-line="160" selection-end-column="53" />
+          <folding>
+            <element signature="e#1830#1858#0" expanded="true" />
+            <element signature="e#1884#1912#0" expanded="true" />
+            <element signature="e#6238#6267#0" expanded="true" />
+            <element signature="e#6603#7650#0" expanded="true" />
+            <element signature="e#7297#7585#0" expanded="true" />
+            <element signature="e#7584#7585#0" expanded="true" />
+            <element signature="e#7649#7650#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

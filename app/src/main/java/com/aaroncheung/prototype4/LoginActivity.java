@@ -23,19 +23,13 @@ import org.json.JSONObject;
 
 public class LoginActivity extends Activity {
     public final static String TAG = "debug_123";
-    private UsbManager usbManager;
     private RobotFacade robotFacade;
-    private RobotState robotState;
-
     HttpRequest httpRequest;
 
     private EditText emailLoginEditText;
     private EditText passwordEditText;
 
-    private String email;
     private String password;
-
-    ImageView faceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +54,6 @@ public class LoginActivity extends Activity {
         Log.d(TAG, "onCreate was created ");
         //faceView = findViewById(R.id.multiFace);
         UsbManager usbManager = (UsbManager) this.getSystemService(this.USB_SERVICE);
-        robotState = RobotState.getInstance();
 
         usbManager = (UsbManager) getSystemService(USB_SERVICE);
         Log.d(TAG, "1");
@@ -95,36 +88,33 @@ public class LoginActivity extends Activity {
         }
         else{
             JSONObject jsonObjectInfo = (JSONObject) jsonObject.get("info");
-            JSONObject jsonObjectProgress = (JSONObject) jsonObject.get("progressNumbers");
-        }
+
+            //CHECKING IF ACCOUNT EXISTS
+            if(jsonObject != null){
+                String databasePassword = jsonObjectInfo.get("password").toString();
+                password = passwordEditText.getText().toString();
+
+                //CHECKING IF PASSWORDS MATCH
+                if(password.matches(databasePassword)){
+                    Toast.makeText(this, "Login Successful",
+                            Toast.LENGTH_LONG).show();
 
 
-        //CHECKING IF ACCOUNT EXISTS
-        if(jsonObject != null){
-            String databasePassword = jsonObjectInfo.get("password").toString();
-            password = passwordEditText.getText().toString();
+                    //INITIALIZING SINGLETON INFORMATION
+                    UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
+                    userInfo.setEmail(jsonObjectInfo.get("email").toString());
 
-            //CHECKING IF PASSWORDS MATCH
-            if(password.matches(databasePassword)){
-                Toast.makeText(this, "Login Successful",
-                        Toast.LENGTH_LONG).show();
-
-
-                //INITIALIZING SINGLETON INFORMATION
-                UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
-                userInfo.setEmail(jsonObjectInfo.get("email").toString());
-
-                startActivity(new Intent(LoginActivity.this, HappyStateActivity.class));
-                //startActivity(new Intent(LoginActivity.this, ChatActivity.class));
+                    startActivity(new Intent(LoginActivity.this, HappyStateActivity.class));
+                }
+                else{
+                    Toast.makeText(this, "Wrong Password",
+                            Toast.LENGTH_LONG).show();
+                }
             }
             else{
-                Toast.makeText(this, "Wrong Password",
+                Toast.makeText(this, "Account Does Not Exist",
                         Toast.LENGTH_LONG).show();
             }
-        }
-        else{
-            Toast.makeText(this, "Account Does Not Exist",
-                    Toast.LENGTH_LONG).show();
         }
     }
 }

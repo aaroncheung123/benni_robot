@@ -135,25 +135,30 @@ public class HappyStateActivity extends SpeechRecognition {
     //
     //--------------------------------------------------
     public void processEmotions(String emotion){
-        if(emotion.matches("happy")){
+        if(emotion.matches("Happy")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.happyface);
+            RobotFacade.getInstance().say("I am now happy");
         }
-        else if(emotion.matches("bored")){
+        else if(emotion.matches("Bored")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.neutral);
+            RobotFacade.getInstance().say("I am now bored");
         }
-        else if(emotion.matches("sad")){
+        else if(emotion.matches("Sad")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.sadface);
+            RobotFacade.getInstance().say("I am now sad");
         }
-        else if(emotion.matches("mad")){
+        else if(emotion.matches("Mad")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.angry);
+            RobotFacade.getInstance().say("I am now mad");
         }
-        else if(emotion.matches("broken")){
+        else if(emotion.matches("Broken")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.tired);
+            RobotFacade.getInstance().say("I am now broken");
         }
     }
 
