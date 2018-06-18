@@ -1,6 +1,5 @@
 package com.aaroncheung.prototype4;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -9,9 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.aaroncheung.prototype4.robot.RobotFacade;
-import com.aaroncheung.prototype4.robot.SpeechRecognition;
-import com.aaroncheung.prototype4.states.RobotState;
+import com.aaroncheung.prototype4.Robot.RobotFacade;
+import com.aaroncheung.prototype4.Robot.SpeechRecognition;
+import com.aaroncheung.prototype4.States.RobotState;
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
@@ -20,7 +19,7 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 import org.json.JSONException;
 
 
-public class HappyStateActivity extends SpeechRecognition {
+public class EmotionActivity extends SpeechRecognition {
 
     public final static String TAG = "debug_123";
     private RobotState robotState;
@@ -60,7 +59,7 @@ public class HappyStateActivity extends SpeechRecognition {
                 );
 
 
-        RobotState.getInstance().setState(new com.aaroncheung.prototype4.states.HappyState());
+        RobotState.getInstance().setState(new com.aaroncheung.prototype4.States.HappyState());
         robotState = RobotState.getInstance();
     }
 
@@ -73,6 +72,8 @@ public class HappyStateActivity extends SpeechRecognition {
     public void processSpeech(String message) {
         Log.d(TAG, "process speech: " + message);
 
+//        processListenCommand(command);
+//        processMovement(command);
 
         if(message.contains("move forward")){
             Log.d(TAG, "move forward");
@@ -117,16 +118,23 @@ public class HappyStateActivity extends SpeechRecognition {
     @Override
     public void processSocketIOCommands(String command) {
         Log.d(TAG, "process command: " + command);
+        processListenCommand(command);
+        processEmotions(command);
+        processMovement(command);
+    }
 
+    //--------------------------------------------------
+    //
+    // Start or Stop listening
+    //
+    //--------------------------------------------------
+    public void processListenCommand(String command){
         if(command.matches("listen")){
             startListening();
         }
         else if(command.matches("stop listening")){
             onPause();
         }
-        processEmotions(command);
-        processMovement(command);
-
     }
 
     //--------------------------------------------------
@@ -138,27 +146,27 @@ public class HappyStateActivity extends SpeechRecognition {
         if(emotion.matches("Happy")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.happyface);
-            RobotFacade.getInstance().say("I am now happy");
+            RobotFacade.getInstance().say("I am happy");
         }
         else if(emotion.matches("Bored")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.neutral);
-            RobotFacade.getInstance().say("I am now bored");
+            RobotFacade.getInstance().say("I am bored");
         }
         else if(emotion.matches("Sad")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.sadface);
-            RobotFacade.getInstance().say("I am now sad");
+            RobotFacade.getInstance().say("I am sad");
         }
         else if(emotion.matches("Mad")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.angry);
-            RobotFacade.getInstance().say("I am now mad");
+            RobotFacade.getInstance().say("I am mad");
         }
         else if(emotion.matches("Broken")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.tired);
-            RobotFacade.getInstance().say("I am now broken");
+            RobotFacade.getInstance().say("I am broken");
         }
     }
 

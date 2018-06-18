@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.aaroncheung.prototype4.Networking.HttpRequest;
 import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
-import com.aaroncheung.prototype4.robot.RobotFacade;
+import com.aaroncheung.prototype4.Robot.RobotFacade;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,7 +81,7 @@ public class LoginActivity extends Activity {
     public void loginCheck() throws JSONException {
         JSONObject jsonObject = httpRequest.getMyJSONObject();
         if(jsonObject == null){
-            Toast.makeText(this, "Please Connect to Wifi",
+            Toast.makeText(this, "Please Connect to Wifi or Restart",
                     Toast.LENGTH_LONG).show();
         }
         else{
@@ -102,7 +102,7 @@ public class LoginActivity extends Activity {
                     UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
                     userInfo.setEmail(jsonObjectInfo.get("email").toString());
 
-                    startActivity(new Intent(LoginActivity.this, HappyStateActivity.class));
+                    startActivity(new Intent(LoginActivity.this, EmotionActivity.class));
                 }
                 else{
                     Toast.makeText(this, "Wrong Password",

@@ -1,8 +1,7 @@
-package com.aaroncheung.prototype4.robot;
+package com.aaroncheung.prototype4.Robot;
 
 import android.content.Context;
 import android.hardware.usb.UsbManager;
-import android.os.Handler;
 import android.util.Log;
 
 public class RobotFacade{

@@ -1,6 +1,6 @@
-package com.aaroncheung.prototype4.states;
+package com.aaroncheung.prototype4.States;
 
-import com.aaroncheung.prototype4.robot.RobotFacade;
+import com.aaroncheung.prototype4.Robot.RobotFacade;
 
 public class SadState implements State {
 

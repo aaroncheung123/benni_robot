@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4.robot;
+package com.aaroncheung.prototype4.Robot;
 
 import android.Manifest;
 import android.app.Activity;
@@ -168,6 +168,11 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     public void onError(int errorCode) {
         String errorMessage = getErrorText(errorCode);
         Log.d(TAG, "FAILED " + errorMessage);
+        try {
+            attemptSend("stop listening");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

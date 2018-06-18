@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4.states;
+package com.aaroncheung.prototype4.States;
 
 
 public interface State {

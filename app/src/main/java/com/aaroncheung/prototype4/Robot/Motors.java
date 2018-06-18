@@ -1,4 +1,4 @@
-package com.aaroncheung.prototype4.robot;
+package com.aaroncheung.prototype4.Robot;
 
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;

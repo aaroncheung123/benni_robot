@@ -1,8 +1,8 @@
-package com.aaroncheung.prototype4.states;
+package com.aaroncheung.prototype4.States;
 
 import android.util.Log;
 
-import com.aaroncheung.prototype4.robot.RobotFacade;
+import com.aaroncheung.prototype4.Robot.RobotFacade;
 
 public class HappyState implements State {
 
