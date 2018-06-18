@@ -30,7 +30,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private static final int REQUEST_RECORD_PERMISSION = 100;
-    protected boolean chatActivityOpen = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,16 +106,12 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     public void startListening(){
-        if(chatActivityOpen){
-            Log.d(TAG, "startListening");
-            ActivityCompat.requestPermissions
-                    (this,
-                            new String[]{Manifest.permission.RECORD_AUDIO},
-                            REQUEST_RECORD_PERMISSION);
-        }
-        else{
-            onDestroy();
-        }
+        Log.d(TAG, "startListening");
+        ActivityCompat.requestPermissions
+                (this,
+                        new String[]{Manifest.permission.RECORD_AUDIO},
+                        REQUEST_RECORD_PERMISSION);
+
 
     }
 
@@ -173,7 +168,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     public void onError(int errorCode) {
         String errorMessage = getErrorText(errorCode);
         Log.d(TAG, "FAILED " + errorMessage);
-        startListening();
     }
 
     @Override
@@ -198,20 +192,11 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         Log.i(TAG, "onResults");
         ArrayList<String> matches = results
                 .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-        String text = "";
-        for (String result : matches)
-            text += result + "\n";
-
+//        String text = "";
+//        for (String result : matches)
+//            text += result + "\n";
         Log.i(TAG, matches.get(0));
         String message = matches.get(0);
-
-//        if(onSwitch){
-//            startListening();
-//            processSpeech(message);
-//        }
-//        else{
-//            processSpeech(message);
-//        }
         processSpeech(message);
     }
 

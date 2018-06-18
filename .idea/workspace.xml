@@ -47,16 +47,16 @@
       <file leaf-file-name="HappyStateActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="102" column="29" lean-forward="false" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+            <state relative-caret-position="881">
+              <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
               <folding>
                 <element signature="e#1613#1641#0" expanded="true" />
                 <element signature="e#1667#1695#0" expanded="true" />
-                <element signature="e#4265#4294#0" expanded="true" />
-                <element signature="e#4630#5677#0" expanded="true" />
-                <element signature="e#5324#5612#0" expanded="true" />
-                <element signature="e#5611#5612#0" expanded="true" />
-                <element signature="e#5676#5677#0" expanded="true" />
+                <element signature="e#4044#4073#0" expanded="true" />
+                <element signature="e#4409#5456#0" expanded="true" />
+                <element signature="e#5103#5391#0" expanded="true" />
+                <element signature="e#5390#5391#0" expanded="true" />
+                <element signature="e#5455#5456#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,8 +65,8 @@
       <file leaf-file-name="SpeechRecognition.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/SpeechRecognition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="117" column="24" lean-forward="false" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+            <state relative-caret-position="2295">
+              <caret line="195" column="39" lean-forward="true" selection-start-line="195" selection-start-column="39" selection-end-line="195" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -2126,8 +2126,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Networking/IBMChat.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/ChatActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/SpeechRecognition.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/SpeechRecognition.java" />
       </list>
     </option>
   </component>
@@ -2226,7 +2226,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="6b52cc20" />
+    <property name="device.picker.selection" value="8bf1c472" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
   <component name="RecentsManager">
@@ -2548,11 +2548,11 @@
           <folding>
             <element signature="e#1613#1641#0" expanded="true" />
             <element signature="e#1667#1695#0" expanded="true" />
-            <element signature="e#4265#4294#0" expanded="true" />
-            <element signature="e#4630#5677#0" expanded="true" />
-            <element signature="e#5324#5612#0" expanded="true" />
-            <element signature="e#5611#5612#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4409#5456#0" expanded="true" />
+            <element signature="e#5103#5391#0" expanded="true" />
+            <element signature="e#5390#5391#0" expanded="true" />
+            <element signature="e#5455#5456#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2603,11 +2603,11 @@
           <folding>
             <element signature="e#1613#1641#0" expanded="true" />
             <element signature="e#1667#1695#0" expanded="true" />
-            <element signature="e#4265#4294#0" expanded="true" />
-            <element signature="e#4630#5677#0" expanded="true" />
-            <element signature="e#5324#5612#0" expanded="true" />
-            <element signature="e#5611#5612#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4409#5456#0" expanded="true" />
+            <element signature="e#5103#5391#0" expanded="true" />
+            <element signature="e#5390#5391#0" expanded="true" />
+            <element signature="e#5455#5456#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2689,11 +2689,11 @@
           <folding>
             <element signature="e#1613#1641#0" expanded="true" />
             <element signature="e#1667#1695#0" expanded="true" />
-            <element signature="e#4265#4294#0" expanded="true" />
-            <element signature="e#4630#5677#0" expanded="true" />
-            <element signature="e#5324#5612#0" expanded="true" />
-            <element signature="e#5611#5612#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4409#5456#0" expanded="true" />
+            <element signature="e#5103#5391#0" expanded="true" />
+            <element signature="e#5390#5391#0" expanded="true" />
+            <element signature="e#5455#5456#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2939,24 +2939,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/SpeechRecognition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="117" column="24" lean-forward="false" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+        <state relative-caret-position="2295">
+          <caret line="195" column="39" lean-forward="true" selection-start-line="195" selection-start-column="39" selection-end-line="195" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="102" column="29" lean-forward="false" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+        <state relative-caret-position="881">
+          <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
           <folding>
             <element signature="e#1613#1641#0" expanded="true" />
             <element signature="e#1667#1695#0" expanded="true" />
-            <element signature="e#4265#4294#0" expanded="true" />
-            <element signature="e#4630#5677#0" expanded="true" />
-            <element signature="e#5324#5612#0" expanded="true" />
-            <element signature="e#5611#5612#0" expanded="true" />
-            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#4044#4073#0" expanded="true" />
+            <element signature="e#4409#5456#0" expanded="true" />
+            <element signature="e#5103#5391#0" expanded="true" />
+            <element signature="e#5390#5391#0" expanded="true" />
+            <element signature="e#5455#5456#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -59,8 +59,6 @@ public class HappyStateActivity extends SpeechRecognition {
     public void processSpeech(String message) {
         Log.d(TAG, "process speech: " + message);
 
-        Log.d(TAG, String.valueOf(chatActivityOpen));
-
 
         if(message.contains("move forward")){
             Log.d(TAG, "move forward");
@@ -99,11 +97,9 @@ public class HappyStateActivity extends SpeechRecognition {
 
 
         if(command.matches("open chat")){
-            chatActivityOpen = true;
             startListening();
         }
         else if(command.matches("exit chat")){
-            chatActivityOpen = false;
         }
         else if(command.matches("forward")){
             Log.d(TAG, "move forward");
@@ -120,9 +116,6 @@ public class HappyStateActivity extends SpeechRecognition {
         }
         else if(command.matches("stop")){
             robotState.stop();
-        }
-        else if(command.matches("listen")){
-            chatActivityOpen = true;
         }
         else if(command.matches("stop listening")){
             onPause();
