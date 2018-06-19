@@ -20,21 +20,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/ChatActivity.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/SadStateActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/SadStateActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/Motors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Motors.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/RobotFacade.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/RobotFacade.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/Speech.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Speech.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/robot/SpeechRecognition.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/states/HappyState.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/HappyState.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/states/RobotState.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/RobotState.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/states/SadState.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/SadState.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/states/State.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/State.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_happy_state.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_happy_state.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,24 +45,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EmotionActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
-              <folding>
-                <element signature="e#1796#1824#0" expanded="true" />
-                <element signature="e#1850#1878#0" expanded="true" />
-                <element signature="e#6515#6544#0" expanded="true" />
-                <element signature="e#6880#7927#0" expanded="true" />
-                <element signature="e#7574#7862#0" expanded="true" />
-                <element signature="e#7861#7862#0" expanded="true" />
-                <element signature="e#7926#7927#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserInformationSingleton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Helper/UserInformationSingleton.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,22 +68,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java">
+      <file leaf-file-name="SpeechRecognition.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="83" column="67" lean-forward="false" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
+            <state relative-caret-position="173">
+              <caret line="198" column="74" lean-forward="false" selection-start-line="198" selection-start-column="74" selection-end-line="198" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpeechRecognition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java">
+      <file leaf-file-name="EmotionActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2025">
-              <caret line="171" column="39" lean-forward="false" selection-start-line="171" selection-start-column="39" selection-end-line="171" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="357">
+              <caret line="209" column="49" lean-forward="false" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
+              <folding>
+                <element signature="e#1796#1824#0" expanded="true" />
+                <element signature="e#1850#1878#0" expanded="true" />
+                <element signature="e#5759#5788#0" expanded="true" />
+                <element signature="e#6124#7170#0" expanded="true" />
+                <element signature="e#6818#7106#0" expanded="true" />
+                <element signature="e#7105#7106#0" expanded="true" />
+                <element signature="e#7169#7170#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2569,11 +2547,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6515#6544#0" expanded="true" />
-            <element signature="e#6880#7927#0" expanded="true" />
-            <element signature="e#7574#7862#0" expanded="true" />
-            <element signature="e#7861#7862#0" expanded="true" />
-            <element signature="e#7926#7927#0" expanded="true" />
+            <element signature="e#5759#5788#0" expanded="true" />
+            <element signature="e#6124#7170#0" expanded="true" />
+            <element signature="e#6818#7106#0" expanded="true" />
+            <element signature="e#7105#7106#0" expanded="true" />
+            <element signature="e#7169#7170#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2620,11 +2598,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6515#6544#0" expanded="true" />
-            <element signature="e#6880#7927#0" expanded="true" />
-            <element signature="e#7574#7862#0" expanded="true" />
-            <element signature="e#7861#7862#0" expanded="true" />
-            <element signature="e#7926#7927#0" expanded="true" />
+            <element signature="e#5759#5788#0" expanded="true" />
+            <element signature="e#6124#7170#0" expanded="true" />
+            <element signature="e#6818#7106#0" expanded="true" />
+            <element signature="e#7105#7106#0" expanded="true" />
+            <element signature="e#7169#7170#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2706,11 +2684,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6515#6544#0" expanded="true" />
-            <element signature="e#6880#7927#0" expanded="true" />
-            <element signature="e#7574#7862#0" expanded="true" />
-            <element signature="e#7861#7862#0" expanded="true" />
-            <element signature="e#7926#7927#0" expanded="true" />
+            <element signature="e#5759#5788#0" expanded="true" />
+            <element signature="e#6124#7170#0" expanded="true" />
+            <element signature="e#6818#7106#0" expanded="true" />
+            <element signature="e#7105#7106#0" expanded="true" />
+            <element signature="e#7169#7170#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2937,22 +2915,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="171" column="39" lean-forward="false" selection-start-line="171" selection-start-column="39" selection-end-line="171" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="83" column="67" lean-forward="false" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_happy_state.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -2964,6 +2926,14 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="83" column="87" lean-forward="false" selection-start-line="83" selection-start-column="87" selection-end-line="83" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Helper/UserInformationSingleton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
@@ -2972,18 +2942,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="198" column="74" lean-forward="false" selection-start-line="198" selection-start-column="74" selection-end-line="198" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="71" column="44" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
+        <state relative-caret-position="357">
+          <caret line="209" column="49" lean-forward="false" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6515#6544#0" expanded="true" />
-            <element signature="e#6880#7927#0" expanded="true" />
-            <element signature="e#7574#7862#0" expanded="true" />
-            <element signature="e#7861#7862#0" expanded="true" />
-            <element signature="e#7926#7927#0" expanded="true" />
+            <element signature="e#5759#5788#0" expanded="true" />
+            <element signature="e#6124#7170#0" expanded="true" />
+            <element signature="e#6818#7106#0" expanded="true" />
+            <element signature="e#7105#7106#0" expanded="true" />
+            <element signature="e#7169#7170#0" expanded="true" />
           </folding>
         </state>
       </provider>

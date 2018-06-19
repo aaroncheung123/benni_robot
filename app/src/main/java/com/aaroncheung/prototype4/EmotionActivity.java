@@ -69,39 +69,12 @@ public class EmotionActivity extends SpeechRecognition {
     //
     //--------------------------------------------------
     @Override
-    public void processSpeech(String message) {
-        Log.d(TAG, "process speech: " + message);
+    public void processSpeech(String command) {
+        Log.d(TAG, "process speech: " + command);
 
-//        processListenCommand(command);
-//        processMovement(command);
-
-        if(message.contains("move forward")){
-            Log.d(TAG, "move forward");
-            robotState.moveForward();
-            startListening();
-        }
-        else if(message.contains("move back")){
-            robotState.moveBackward();
-            startListening();
-        }
-        else if(message.contains("turn right")){
-            robotState.turnRight();
-            startListening();
-        }
-        else if(message.contains("turn left")){
-            robotState.turnLeft();
-            startListening();
-        }
-        else if(message.contains("stop moving")){
-            robotState.stop();
-            startListening();
-        }
-        else if(message.contains("stop listening")){
-            onPause();
-        }
-        else{
-            IBMProcessSpeech(message);
-        }
+        processListenCommand(command);
+        processMovement(command);
+        IBMProcessSpeech(command);
     }
 
     //************************
@@ -202,7 +175,7 @@ public class EmotionActivity extends SpeechRecognition {
 
     public void IBMProcessSpeech(String message){
 
-        Log.d(TAG, message);
+        Log.d(TAG, "IBM Process Speech" + message);
         MessageRequest request = new MessageRequest.Builder()
                 .inputText(message)
                 .build();
@@ -235,7 +208,6 @@ public class EmotionActivity extends SpeechRecognition {
                                                 startListening();
                                             }
                                         }, 4000);
-
                             }
                         });
                     }

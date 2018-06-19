@@ -197,9 +197,6 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         Log.i(TAG, "onResults");
         ArrayList<String> matches = results
                 .getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-//        String text = "";
-//        for (String result : matches)
-//            text += result + "\n";
         Log.i(TAG, matches.get(0));
         String message = matches.get(0);
         processSpeech(message);

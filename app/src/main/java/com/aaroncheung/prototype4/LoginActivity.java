@@ -81,7 +81,7 @@ public class LoginActivity extends Activity {
     public void loginCheck() throws JSONException {
         JSONObject jsonObject = httpRequest.getMyJSONObject();
         if(jsonObject == null){
-            Toast.makeText(this, "Please Connect to Wifi or Restart",
+            Toast.makeText(this, "Connect to wifi or wait 5 seconds and hit login again",
                     Toast.LENGTH_LONG).show();
         }
         else{
