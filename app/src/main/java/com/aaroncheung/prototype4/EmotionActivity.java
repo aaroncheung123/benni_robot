@@ -72,9 +72,11 @@ public class EmotionActivity extends SpeechRecognition {
     public void processSpeech(String command) {
         Log.d(TAG, "process speech: " + command);
 
-        processListenCommand(command);
         processMovement(command);
-        IBMProcessSpeech(command);
+        if(processListenCommand(command) == false){
+            IBMProcessSpeech(command);
+        }
+
     }
 
     //************************
@@ -102,13 +104,17 @@ public class EmotionActivity extends SpeechRecognition {
     // Start or Stop listening
     //
     //--------------------------------------------------
-    public void processListenCommand(String command){
+    public boolean processListenCommand(String command){
         if(command.matches("listen")){
             startListening();
+            return true;
         }
         else if(command.matches("stop listening")){
+            RobotFacade.getInstance().say("Ok I will stop listening");
             onPause();
+            return true;
         }
+        return false;
     }
 
     public void processMathGameCommand(String command){
@@ -205,6 +211,7 @@ public class EmotionActivity extends SpeechRecognition {
                                 //Sending a +1 for chatProgress score
                                 try {
                                     attemptSend("add chatProgress");
+                                    attemptSend("listening");
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -214,7 +221,7 @@ public class EmotionActivity extends SpeechRecognition {
                                             public void run() {
                                                 startListening();
                                             }
-                                        }, 4000);
+                                        }, 4500);
                             }
                         });
                     }
