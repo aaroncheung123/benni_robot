@@ -13,16 +13,13 @@
     <list default="true" id="a6633dc1-e49b-4711-96fa-d0af3ccd7304" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,7 +45,7 @@
       <file leaf-file-name="UserInformationSingleton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Helper/UserInformationSingleton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
+            <state relative-caret-position="30">
               <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
@@ -68,11 +65,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Speech.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Speech.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SpeechRecognition.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="198" column="74" lean-forward="false" selection-start-line="198" selection-start-column="74" selection-end-line="198" selection-end-column="74" />
+            <state relative-caret-position="93">
+              <caret line="79" column="43" lean-forward="false" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -81,17 +88,37 @@
       <file leaf-file-name="EmotionActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="209" column="49" lean-forward="false" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
+            <state relative-caret-position="348">
+              <caret line="115" column="35" lean-forward="false" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="35" />
               <folding>
                 <element signature="e#1796#1824#0" expanded="true" />
                 <element signature="e#1850#1878#0" expanded="true" />
-                <element signature="e#5759#5788#0" expanded="true" />
-                <element signature="e#6124#7170#0" expanded="true" />
-                <element signature="e#6818#7106#0" expanded="true" />
-                <element signature="e#7105#7106#0" expanded="true" />
-                <element signature="e#7169#7170#0" expanded="true" />
+                <element signature="e#5999#6028#0" expanded="true" />
+                <element signature="e#6364#7410#0" expanded="true" />
+                <element signature="e#7058#7346#0" expanded="true" />
+                <element signature="e#7345#7346#0" expanded="true" />
+                <element signature="e#7409#7410#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Motors.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Motors.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2143,7 +2170,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Networking/HttpRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/states/HappyState.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/SadStateActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_chat.xml" />
@@ -2156,6 +2182,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/HappyStateActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" />
       </list>
     </option>
@@ -2248,7 +2275,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="6b52ccdb" />
+    <property name="device.picker.selection" value="Pixel_2_API_25" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
   </component>
   <component name="RecentsManager">
@@ -2450,10 +2477,10 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.50429183" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32806325" sideWeight="0.49713877" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32806325" sideWeight="0.49570817" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.49570817" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2547,11 +2574,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#5759#5788#0" expanded="true" />
-            <element signature="e#6124#7170#0" expanded="true" />
-            <element signature="e#6818#7106#0" expanded="true" />
-            <element signature="e#7105#7106#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
+            <element signature="e#5999#6028#0" expanded="true" />
+            <element signature="e#6364#7410#0" expanded="true" />
+            <element signature="e#7058#7346#0" expanded="true" />
+            <element signature="e#7345#7346#0" expanded="true" />
+            <element signature="e#7409#7410#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2598,11 +2625,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#5759#5788#0" expanded="true" />
-            <element signature="e#6124#7170#0" expanded="true" />
-            <element signature="e#6818#7106#0" expanded="true" />
-            <element signature="e#7105#7106#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
+            <element signature="e#5999#6028#0" expanded="true" />
+            <element signature="e#6364#7410#0" expanded="true" />
+            <element signature="e#7058#7346#0" expanded="true" />
+            <element signature="e#7345#7346#0" expanded="true" />
+            <element signature="e#7409#7410#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2684,11 +2711,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#5759#5788#0" expanded="true" />
-            <element signature="e#6124#7170#0" expanded="true" />
-            <element signature="e#6818#7106#0" expanded="true" />
-            <element signature="e#7105#7106#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
+            <element signature="e#5999#6028#0" expanded="true" />
+            <element signature="e#6364#7410#0" expanded="true" />
+            <element signature="e#7058#7346#0" expanded="true" />
+            <element signature="e#7345#7346#0" expanded="true" />
+            <element signature="e#7409#7410#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2756,14 +2783,6 @@
       </provider>
       <provider editor-type-id="android-manifest">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Motors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/States/State.java">
@@ -2857,30 +2876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="65" lean-forward="false" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Speech.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/RobotFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="48" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/tired.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -2934,9 +2929,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Motors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/Speech.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/RobotFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="55" column="9" lean-forward="false" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Helper/UserInformationSingleton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
@@ -2944,24 +2971,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/Robot/SpeechRecognition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="198" column="74" lean-forward="false" selection-start-line="198" selection-start-column="74" selection-end-line="198" selection-end-column="74" />
+        <state relative-caret-position="93">
+          <caret line="79" column="43" lean-forward="false" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="209" column="49" lean-forward="false" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
+        <state relative-caret-position="348">
+          <caret line="115" column="35" lean-forward="false" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="35" />
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#5759#5788#0" expanded="true" />
-            <element signature="e#6124#7170#0" expanded="true" />
-            <element signature="e#6818#7106#0" expanded="true" />
-            <element signature="e#7105#7106#0" expanded="true" />
-            <element signature="e#7169#7170#0" expanded="true" />
+            <element signature="e#5999#6028#0" expanded="true" />
+            <element signature="e#6364#7410#0" expanded="true" />
+            <element signature="e#7058#7346#0" expanded="true" />
+            <element signature="e#7345#7346#0" expanded="true" />
+            <element signature="e#7409#7410#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -92,6 +92,7 @@ public class EmotionActivity extends SpeechRecognition {
     public void processSocketIOCommands(String command) {
         Log.d(TAG, "process command: " + command);
         processListenCommand(command);
+        processMathGameCommand(command);
         processEmotions(command);
         processMovement(command);
     }
@@ -107,6 +108,12 @@ public class EmotionActivity extends SpeechRecognition {
         }
         else if(command.matches("stop listening")){
             onPause();
+        }
+    }
+
+    public void processMathGameCommand(String command){
+        if(command.matches("Math1")){
+            RobotFacade.getInstance().say("Hi, can you help me with my math homework");
         }
     }
 
