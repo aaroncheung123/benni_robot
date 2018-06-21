@@ -32,10 +32,6 @@
             android:name=".EmotionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
-        <activity
-            android:name=".SadStateActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

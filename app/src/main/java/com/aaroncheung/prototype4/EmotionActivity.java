@@ -238,7 +238,7 @@ public class EmotionActivity extends SpeechRecognition {
 
 
     public void happyStateFaceClick(View view) {
-        //startListening();
+        RobotFacade.getInstance().say("Hey that tickeled");
     }
 
 
