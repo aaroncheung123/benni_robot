@@ -121,6 +121,9 @@ public class EmotionActivity extends SpeechRecognition {
         if(command.matches("Math1")){
             RobotFacade.getInstance().say("Hi, can you help me with my math homework");
         }
+        else if(command.matches("CorrectMath")){
+            RobotFacade.getInstance().say("Good Job! You got it Right!");
+        }
     }
 
     //--------------------------------------------------

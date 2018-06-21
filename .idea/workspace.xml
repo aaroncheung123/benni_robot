@@ -10,7 +10,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6633dc1-e49b-4711-96fa-d0af3ccd7304" name="Default" comment="" />
+    <list default="true" id="a6633dc1-e49b-4711-96fa-d0af3ccd7304" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,16 +70,16 @@
       <file leaf-file-name="EmotionActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1992">
-              <caret line="164" column="40" lean-forward="true" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="40" />
+            <state relative-caret-position="400">
+              <caret line="125" column="9" lean-forward="false" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
               <folding>
                 <element signature="e#1796#1824#0" expanded="true" />
                 <element signature="e#1850#1878#0" expanded="true" />
-                <element signature="e#6173#6202#0" expanded="true" />
-                <element signature="e#6538#7646#0" expanded="true" />
-                <element signature="e#7294#7582#0" expanded="true" />
-                <element signature="e#7581#7582#0" expanded="true" />
-                <element signature="e#7645#7646#0" expanded="true" />
+                <element signature="e#6306#6335#0" expanded="true" />
+                <element signature="e#6671#7779#0" expanded="true" />
+                <element signature="e#7427#7715#0" expanded="true" />
+                <element signature="e#7714#7715#0" expanded="true" />
+                <element signature="e#7778#7779#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2424,6 +2426,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2507,11 +2510,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6173#6202#0" expanded="true" />
-            <element signature="e#6538#7646#0" expanded="true" />
-            <element signature="e#7294#7582#0" expanded="true" />
-            <element signature="e#7581#7582#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
+            <element signature="e#6306#6335#0" expanded="true" />
+            <element signature="e#6671#7779#0" expanded="true" />
+            <element signature="e#7427#7715#0" expanded="true" />
+            <element signature="e#7714#7715#0" expanded="true" />
+            <element signature="e#7778#7779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2541,11 +2544,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6173#6202#0" expanded="true" />
-            <element signature="e#6538#7646#0" expanded="true" />
-            <element signature="e#7294#7582#0" expanded="true" />
-            <element signature="e#7581#7582#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
+            <element signature="e#6306#6335#0" expanded="true" />
+            <element signature="e#6671#7779#0" expanded="true" />
+            <element signature="e#7427#7715#0" expanded="true" />
+            <element signature="e#7714#7715#0" expanded="true" />
+            <element signature="e#7778#7779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2627,11 +2630,11 @@
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6173#6202#0" expanded="true" />
-            <element signature="e#6538#7646#0" expanded="true" />
-            <element signature="e#7294#7582#0" expanded="true" />
-            <element signature="e#7581#7582#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
+            <element signature="e#6306#6335#0" expanded="true" />
+            <element signature="e#6671#7779#0" expanded="true" />
+            <element signature="e#7427#7715#0" expanded="true" />
+            <element signature="e#7714#7715#0" expanded="true" />
+            <element signature="e#7778#7779#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2868,16 +2871,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aaroncheung/prototype4/EmotionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1992">
-          <caret line="164" column="40" lean-forward="true" selection-start-line="164" selection-start-column="40" selection-end-line="164" selection-end-column="40" />
+        <state relative-caret-position="400">
+          <caret line="125" column="9" lean-forward="false" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
           <folding>
             <element signature="e#1796#1824#0" expanded="true" />
             <element signature="e#1850#1878#0" expanded="true" />
-            <element signature="e#6173#6202#0" expanded="true" />
-            <element signature="e#6538#7646#0" expanded="true" />
-            <element signature="e#7294#7582#0" expanded="true" />
-            <element signature="e#7581#7582#0" expanded="true" />
-            <element signature="e#7645#7646#0" expanded="true" />
+            <element signature="e#6306#6335#0" expanded="true" />
+            <element signature="e#6671#7779#0" expanded="true" />
+            <element signature="e#7427#7715#0" expanded="true" />
+            <element signature="e#7714#7715#0" expanded="true" />
+            <element signature="e#7778#7779#0" expanded="true" />
           </folding>
         </state>
       </provider>
