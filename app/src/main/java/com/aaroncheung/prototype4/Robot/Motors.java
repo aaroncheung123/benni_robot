@@ -12,8 +12,11 @@ import android.hardware.usb.UsbManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
+
+import org.json.JSONException;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -30,6 +33,8 @@ public class Motors extends ContextWrapper {
     private UsbSerialDevice serialPort;
     private UsbDeviceConnection connection;
     private Context context;
+    private UserInformationSingleton userInformationSingleton;
+
 
 
     public Motors(Context base, UsbManager usbManager) {
@@ -49,9 +54,13 @@ public class Motors extends ContextWrapper {
         @Override
         public void onReceivedData(byte[] arg0) {
             Log.d(TAG, "11");
+            userInformationSingleton = UserInformationSingleton.getInstance();
             String data;
             try {
                 data = new String(arg0, "UTF-8");
+                if(data.matches("i") || data.matches("o") || data.matches("p")){
+                    userInformationSingleton.setBattery(data);
+                }
                 Log.d(TAG, "data is " + data);
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();

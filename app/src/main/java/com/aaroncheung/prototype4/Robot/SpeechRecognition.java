@@ -83,7 +83,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         }
     };
 
-    protected void attemptSend(String message) throws JSONException {
+    public void attemptSend(String message) throws JSONException {
         if (TextUtils.isEmpty(message)) {
             return;
         }

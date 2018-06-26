@@ -75,6 +75,7 @@ public class RobotFacade{
     public void stop(){
         motors.sendArduino("z");
     }
+    public void getBattery() { motors.sendArduino("v"); }
 
 
 }

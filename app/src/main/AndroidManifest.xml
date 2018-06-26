@@ -32,6 +32,11 @@
             android:name=".EmotionActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape" />
+
+        <service
+            android:name=".Helper.BatteryService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

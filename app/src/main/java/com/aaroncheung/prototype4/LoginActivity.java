@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.aaroncheung.prototype4.Helper.BatteryService;
 import com.aaroncheung.prototype4.Networking.HttpRequest;
 import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
 import com.aaroncheung.prototype4.Robot.RobotFacade;
@@ -26,6 +27,9 @@ public class LoginActivity extends Activity {
 
     private EditText emailLoginEditText;
     private EditText passwordEditText;
+    private Intent BatteryServiceIntent;
+
+
 
     private String password;
 
@@ -58,6 +62,11 @@ public class LoginActivity extends Activity {
         robotFacade = RobotFacade.getInstance();
 
         robotFacade.init(this, usbManager);
+
+        //STARTING SERVICE TIMER
+        BatteryServiceIntent = new Intent(getApplicationContext(), BatteryService.class);
+        startService(BatteryServiceIntent);
+
     }
 
 
