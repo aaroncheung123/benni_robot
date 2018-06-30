@@ -26,10 +26,11 @@ import java.util.ArrayList;
 
 public class SpeechRecognition extends Activity implements RecognitionListener {
 
-    public final static String TAG = "debug_123";
+    public final static String TAG = "speech_rec";
     private SpeechRecognizer speech = null;
     private Intent recognizerIntent;
     private static final int REQUEST_RECORD_PERMISSION = 100;
+    private UserInformationSingleton userInformationSingleton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,9 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
 
         //Connecting to Socket IO
         Log.d(TAG, "SOCKET INIT");
-        email = UserInformationSingleton.getInstance().getEmail();
+        userInformationSingleton = UserInformationSingleton.getInstance();
         socket.connect();
+        email = userInformationSingleton.getEmail();
         socket.on(email, handleIncomingMessages);
     }
 
@@ -60,11 +62,11 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     private String url = UserInformationSingleton.getInstance().getSERVER_URL();
-    private String email;
+    private String email = UserInformationSingleton.getInstance().getEmail();
 
     private Socket socket;
     {
-        Log.d(TAG, "Connecting to socket");
+        Log.d(TAG, "Connecting to socket" + email);
         try {
             socket = IO.socket(url);
         } catch (URISyntaxException e) {}
@@ -84,6 +86,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     };
 
     public void attemptSend(String message) throws JSONException {
+        email = UserInformationSingleton.getInstance().getEmail();
         if (TextUtils.isEmpty(message)) {
             return;
         }
@@ -107,6 +110,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
 
     public void startListening(){
         Log.d(TAG, "startListening");
+        userInformationSingleton.setChatting(true);
         ActivityCompat.requestPermissions
                 (this,
                         new String[]{Manifest.permission.RECORD_AUDIO},
@@ -141,6 +145,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
 
     @Override
     protected void onStop() {
+        userInformationSingleton.setChatting(false);
         super.onStop();
         if (speech != null) {
             speech.destroy();
@@ -168,6 +173,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     public void onError(int errorCode) {
         String errorMessage = getErrorText(errorCode);
         Log.d(TAG, "FAILED " + errorMessage);
+        userInformationSingleton.setChatting(false);
         try {
             attemptSend("stop listening");
         } catch (JSONException e) {

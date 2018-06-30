@@ -31,7 +31,7 @@ public class Speech {
         });
     }
 
-    public void say(String message){
+    public TextToSpeech say(String message){
         Log.d(TAG, "say2");
         //String text = message;
         float pitch = (float) .85;
@@ -43,6 +43,7 @@ public class Speech {
         mTTS.setSpeechRate(speed);
 
         mTTS.speak(message, TextToSpeech.QUEUE_FLUSH, null);
+        return mTTS;
     }
 
 

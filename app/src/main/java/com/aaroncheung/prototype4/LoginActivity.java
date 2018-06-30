@@ -3,6 +3,7 @@ package com.aaroncheung.prototype4;
 import android.app.Activity;
 import android.content.Intent;
 import android.hardware.usb.UsbManager;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -21,13 +22,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends Activity {
-    public final static String TAG = "debug_123";
+    public final static String TAG = "Login_Activity";
     private RobotFacade robotFacade;
     HttpRequest httpRequest;
 
     private EditText emailLoginEditText;
     private EditText passwordEditText;
     private Intent BatteryServiceIntent;
+    private UserInformationSingleton userInformationSingleton;
 
 
 
@@ -49,6 +51,7 @@ public class LoginActivity extends Activity {
 
         emailLoginEditText = findViewById(R.id.emailLoginEditText);
         passwordEditText = findViewById(R.id.passwordLoginEditText);
+        userInformationSingleton = UserInformationSingleton.getInstance();
         Log.d(TAG, "Login onCreate");
         httpRequest = new HttpRequest(this);
 
@@ -62,10 +65,6 @@ public class LoginActivity extends Activity {
         robotFacade = RobotFacade.getInstance();
 
         robotFacade.init(this, usbManager);
-
-        //STARTING SERVICE TIMER
-        BatteryServiceIntent = new Intent(getApplicationContext(), BatteryService.class);
-        startService(BatteryServiceIntent);
 
     }
 
@@ -95,7 +94,7 @@ public class LoginActivity extends Activity {
         }
         else{
             JSONObject jsonObjectInfo = (JSONObject) jsonObject.get("info");
-
+            Log.d(TAG, "_________HERE IS LOGGING IN");
             //CHECKING IF ACCOUNT EXISTS
             if(jsonObject != null){
                 String databasePassword = jsonObjectInfo.get("password").toString();
@@ -106,10 +105,12 @@ public class LoginActivity extends Activity {
                     Toast.makeText(this, "Login Successful",
                             Toast.LENGTH_LONG).show();
 
-
                     //INITIALIZING SINGLETON INFORMATION
-                    UserInformationSingleton userInfo = UserInformationSingleton.getInstance();
-                    userInfo.setEmail(jsonObjectInfo.get("email").toString());
+                    userInformationSingleton.setEmail(jsonObjectInfo.get("email").toString());
+
+                    //STARTING SERVICE TIMER
+                    BatteryServiceIntent = new Intent(getApplicationContext(), BatteryService.class);
+                    startService(BatteryServiceIntent);
 
                     startActivity(new Intent(LoginActivity.this, EmotionActivity.class));
                 }

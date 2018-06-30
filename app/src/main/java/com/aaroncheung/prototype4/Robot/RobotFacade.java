@@ -2,6 +2,7 @@ package com.aaroncheung.prototype4.Robot;
 
 import android.content.Context;
 import android.hardware.usb.UsbManager;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
 public class RobotFacade{
@@ -36,8 +37,8 @@ public class RobotFacade{
     }
 
 
-    public void say(String robotFacadeMessage){
-        speech.say(robotFacadeMessage);
+    public TextToSpeech say(String robotFacadeMessage){
+        return speech.say(robotFacadeMessage);
 //        final Handler handler = new Handler();
 //        handler.postDelayed(new Runnable() {
 //            @Override

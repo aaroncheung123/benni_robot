@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.aaroncheung.prototype4.Robot.RobotFacade;
 import com.aaroncheung.prototype4.Robot.SpeechRecognition;
@@ -12,7 +13,7 @@ import com.aaroncheung.prototype4.Robot.SpeechRecognition;
 import org.json.JSONException;
 
 public class BatteryService extends Service {
-
+    public final String TAG = "debug_bat_service";
     private UserInformationSingleton userInformationSingleton;
     private SpeechRecognition speechRecognition;
 
@@ -33,6 +34,13 @@ public class BatteryService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         speechRecognition = new SpeechRecognition();
+        userInformationSingleton = UserInformationSingleton.getInstance();
+
+        BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
+        int batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+        userInformationSingleton.setHeadBattery(batteryLevel);
+        userInformationSingleton.setRobotBattery("i");
+        userInformationSingleton.setMinInLowCharge(0);
 
         sendRobotHeadBattery();
         getRobotBattery();
@@ -46,25 +54,28 @@ public class BatteryService extends Service {
     //
     //----------------------------------------------
     public void sendRobotHeadBattery(){
-        final Handler handler = new Handler();
-        Runnable run = new Runnable() {
-            @Override
-            public void run() {
+        if(!userInformationSingleton.getChatting()) {
+            Log.d(TAG, "Sending phone battery");
 
-                try {
-                    batteryManager = (BatteryManager)getSystemService(BATTERY_SERVICE);
-                    batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
-                    speechRecognition.attemptSend("head-battery " + String.valueOf(batteryLevel));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            final Handler handler = new Handler();
+            Runnable run = new Runnable() {
+                @Override
+                public void run() {
+
+                    try {
+                        batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
+                        batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+                        Log.d(TAG, String.valueOf(batteryLevel));
+                        speechRecognition.attemptSend("headBattery-" + String.valueOf(batteryLevel));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    handler.postDelayed(this, 3600);
                 }
-
-                handler.postDelayed(this, 60);
-
-
-            }
-        };
-        handler.post(run);
+            };
+            handler.post(run);
+        }
     }
 
     //----------------------------------------------
@@ -77,9 +88,10 @@ public class BatteryService extends Service {
         Runnable run = new Runnable() {
             @Override
             public void run() {
-                    RobotFacade robotFacade = RobotFacade.getInstance();
-                    robotFacade.getBattery();
-                handler.postDelayed(this, 60);
+                RobotFacade robotFacade = RobotFacade.getInstance();
+                robotFacade.getBattery();
+                sendRobotBattery();
+                handler.postDelayed(this, 3600);
             }
         };
         handler.post(run);
@@ -91,24 +103,24 @@ public class BatteryService extends Service {
     //
     //----------------------------------------------
     public void sendRobotBattery(){
-        final Handler handler = new Handler();
-        Runnable run = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    speechRecognition.attemptSend("body-battery " + String.valueOf(userInformationSingleton.getBattery()));
-                    speechRecognition.attemptSend("min-low-charge " + String.valueOf(userInformationSingleton.getMinInLowCharge()));
+        if(!userInformationSingleton.getChatting()) {
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            final Handler handler = new Handler();
+            Runnable run = new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        speechRecognition.attemptSend("bodyBattery-" + String.valueOf(userInformationSingleton.getRobotBattery()));
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    handler.postDelayed(this, 3600);
                 }
-                handler.postDelayed(this, 60);
-            }
-        };
-        handler.post(run);
+            };
+            handler.post(run);
+        }
     }
-
-
 
 
 }

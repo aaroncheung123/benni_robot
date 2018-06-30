@@ -1,7 +1,8 @@
 package com.aaroncheung.prototype4;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +18,7 @@ import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
 import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
 import org.json.JSONException;
+
 
 
 public class EmotionActivity extends SpeechRecognition {
@@ -209,7 +211,7 @@ public class EmotionActivity extends SpeechRecognition {
                             @Override
                             public void run() {
                                 Log.d(TAG, outputText);
-                                RobotFacade.getInstance().say(outputText);
+                                TextToSpeech mTTs = RobotFacade.getInstance().say(outputText);
 
                                 //Sending a +1 for chatProgress score
                                 try {
@@ -218,13 +220,17 @@ public class EmotionActivity extends SpeechRecognition {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                final Handler handler = new Handler();
-                                        handler.postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                startListening();
-                                            }
-                                        }, 4500);
+                                while(mTTs.isSpeaking()){
+                                    continue;
+                                }
+                                startListening();
+//                                final Handler handler = new Handler();
+//                                        handler.postDelayed(new Runnable() {
+//                                            @Override
+//                                            public void run() {
+//
+//                                            }
+//                                        }, 4500);
                             }
                         });
                     }

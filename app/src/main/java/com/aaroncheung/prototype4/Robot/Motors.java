@@ -59,7 +59,7 @@ public class Motors extends ContextWrapper {
             try {
                 data = new String(arg0, "UTF-8");
                 if(data.matches("i") || data.matches("o") || data.matches("p")){
-                    userInformationSingleton.setBattery(data);
+                    userInformationSingleton.setRobotBattery(data);
                 }
                 Log.d(TAG, "data is " + data);
             } catch (UnsupportedEncodingException e) {
@@ -144,6 +144,7 @@ public class Motors extends ContextWrapper {
     public void stop() {
         serialPort.close();
         Log.d(TAG, "Serial Connection Closed");
+        unregisterReceiver(broadcastReceiver);
     }
 
     public boolean getPermission(){
