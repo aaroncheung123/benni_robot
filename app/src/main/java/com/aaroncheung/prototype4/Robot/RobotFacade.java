@@ -1,6 +1,8 @@
 package com.aaroncheung.prototype4.Robot;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.usb.UsbManager;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -12,6 +14,8 @@ public class RobotFacade{
     Context context;
     Motors motors;
     Speech speech;
+    private UsbManager usbManager;
+
 
     private static RobotFacade instance = null;
 
@@ -27,6 +31,7 @@ public class RobotFacade{
     }
 
     public void init(Context context, UsbManager usbManager){
+        this.usbManager = usbManager;
         Log.d(TAG, "2");
         this.context = context;
         motors = new Motors(context, usbManager);

@@ -34,6 +34,7 @@ public class Motors extends ContextWrapper {
     private UsbDeviceConnection connection;
     private Context context;
     private UserInformationSingleton userInformationSingleton;
+    private boolean keep = false;
 
 
 
@@ -115,7 +116,7 @@ public class Motors extends ContextWrapper {
         //UsbManager usbManager = (UsbManager) context.getSystemService(context.USB_SERVICE);
         HashMap<String, UsbDevice> usbDevices = usbManager.getDeviceList();
         if (!usbDevices.isEmpty()) {
-            boolean keep = true;
+            keep = true;
             for (Map.Entry<String, UsbDevice> entry : usbDevices.entrySet()) {
                 device = entry.getValue();
                 int deviceVID = device.getVendorId();
@@ -137,8 +138,10 @@ public class Motors extends ContextWrapper {
     }
 
     public void sendArduino(String s) {
-        Log.d(TAG, "Sending Arduino: " + s);
-        serialPort.write(s.getBytes());
+        if(keep) {
+            Log.d(TAG, "Sending Arduino: " + s);
+            serialPort.write(s.getBytes());
+        }
     }
 
     public void stop() {
