@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
@@ -23,6 +24,7 @@ import org.json.JSONException;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class SpeechRecognition extends Activity implements RecognitionListener {
 
@@ -98,6 +100,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        userInformationSingleton.setContext(null);
         socket.disconnect();
     }
 
@@ -109,14 +112,18 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
     //--------------------------------------------------
 
     public void startListening(){
+        Map<String, Object> context = userInformationSingleton.getContext();
+        if(context != null) {
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(this, "this is the context: " + context.toString(), duration);
+            toast.show();
+        }
         Log.d(TAG, "startListening");
         userInformationSingleton.setChatting(true);
         ActivityCompat.requestPermissions
                 (this,
                         new String[]{Manifest.permission.RECORD_AUDIO},
                         REQUEST_RECORD_PERMISSION);
-
-
     }
 
 
@@ -149,6 +156,7 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         super.onStop();
         if (speech != null) {
             speech.destroy();
+            userInformationSingleton.setContext(null);
             Log.i(TAG, "destroy");
         }
     }

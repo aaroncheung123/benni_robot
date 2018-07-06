@@ -12,6 +12,7 @@ import android.hardware.usb.UsbManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aaroncheung.prototype4.Helper.BatteryService;
 import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
 import com.felhr.usbserial.UsbSerialDevice;
 import com.felhr.usbserial.UsbSerialInterface;
@@ -88,6 +89,11 @@ public class Motors extends ContextWrapper {
                             serialPort.setParity(UsbSerialInterface.PARITY_NONE);
                             serialPort.setFlowControl(UsbSerialInterface.FLOW_CONTROL_OFF);
                             serialPort.read(mCallback);
+
+                            //STARTING SERVICE TIMER
+                            Intent BatteryServiceIntent = new Intent(getApplicationContext(), BatteryService.class);
+                            startService(BatteryServiceIntent);
+
                             Log.d(TAG, "Serial Connection Opened");
                             Toast.makeText(context, "Serial Connection Opened",
                                     Toast.LENGTH_SHORT).show();
@@ -138,10 +144,13 @@ public class Motors extends ContextWrapper {
     }
 
     public void sendArduino(String s) {
-        if(keep) {
-            Log.d(TAG, "Sending Arduino: " + s);
-            serialPort.write(s.getBytes());
-        }
+//        int duration = Toast.LENGTH_SHORT;
+//        Toast toast = Toast.makeText(context, "sending arduno: " + s, duration);
+//        toast.show();
+
+        Log.d(TAG, "Sending Arduino: " + s);
+        serialPort.write(s.getBytes());
+
     }
 
     public void stop() {

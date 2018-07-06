@@ -1,6 +1,5 @@
 package com.aaroncheung.prototype4;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -8,7 +7,9 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.aaroncheung.prototype4.Helper.UserInformationSingleton;
 import com.aaroncheung.prototype4.Robot.RobotFacade;
 import com.aaroncheung.prototype4.Robot.SpeechRecognition;
 import com.aaroncheung.prototype4.States.RobotState;
@@ -19,6 +20,7 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
 import org.json.JSONException;
 
+import java.util.Map;
 
 
 public class EmotionActivity extends SpeechRecognition {
@@ -27,6 +29,7 @@ public class EmotionActivity extends SpeechRecognition {
     private RobotState robotState;
     private ConversationService myConversationService = null;
     private ImageView displayFace;
+    private UserInformationSingleton userInformationSingleton;
 
 
 
@@ -43,6 +46,8 @@ public class EmotionActivity extends SpeechRecognition {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        userInformationSingleton = UserInformationSingleton.getInstance();
 
         //************************
 
@@ -192,18 +197,31 @@ public class EmotionActivity extends SpeechRecognition {
     //--------------------------------------------------
 
     public void IBMProcessSpeech(String message){
-
+        MessageRequest request;
         Log.d(TAG, "IBM Process Speech" + message);
-        MessageRequest request = new MessageRequest.Builder()
-                .inputText(message)
-                .build();
+        Map<String, Object> context = userInformationSingleton.getContext();
+        if(context == null) {
+            request = new MessageRequest.Builder()
+                    .inputText(message)
+                    .build();
+        }
+        else {
+            request = new MessageRequest.Builder()
+                    .inputText(message)
+                    .context(context)
+                    .build();
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(this, "this is the context: " + context.toString(), duration);
+            toast.show();
+        }
+
 
 
         myConversationService
                 .message(getString(R.string.workspace), request)
                 .enqueue(new ServiceCallback<MessageResponse>() {
                     @Override
-                    public void onResponse(MessageResponse response) {
+                    public void onResponse(final MessageResponse response) {
                         // More code here
                         final String outputText = response.getText().get(0);
 
@@ -223,6 +241,7 @@ public class EmotionActivity extends SpeechRecognition {
                                 while(mTTs.isSpeaking()){
                                     continue;
                                 }
+                                userInformationSingleton.setContext(response.getContext());
                                 startListening();
 //                                final Handler handler = new Handler();
 //                                        handler.postDelayed(new Runnable() {

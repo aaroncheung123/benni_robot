@@ -115,8 +115,7 @@ public class BatteryService extends Service {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    handler.postDelayed(this, 3600);
-                }
+                    handler.postDelayed(this, 3600); }
             };
             handler.post(run);
         }

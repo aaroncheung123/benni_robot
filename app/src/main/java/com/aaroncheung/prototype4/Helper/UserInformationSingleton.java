@@ -1,5 +1,7 @@
 package com.aaroncheung.prototype4.Helper;
 
+import java.util.Map;
+
 public class UserInformationSingleton {
 
     private String email;
@@ -8,6 +10,7 @@ public class UserInformationSingleton {
     private Integer HeadBattery;
     private Integer minInLowCharge;
     private Boolean isChatting = false;
+    private Map<String, Object> context;
 
 
     private static UserInformationSingleton instance = null;
@@ -74,4 +77,11 @@ public class UserInformationSingleton {
         return isChatting;
     }
 
+    public Map<String, Object> getContext() {
+        return context;
+    }
+
+    public void setContext(Map<String, Object> context) {
+        this.context = context;
+    }
 }
