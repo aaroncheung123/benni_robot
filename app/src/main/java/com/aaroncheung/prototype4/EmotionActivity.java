@@ -20,7 +20,9 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.Random;
 
 
 public class EmotionActivity extends SpeechRecognition {
@@ -30,7 +32,7 @@ public class EmotionActivity extends SpeechRecognition {
     private ConversationService myConversationService = null;
     private ImageView displayFace;
     private UserInformationSingleton userInformationSingleton;
-
+    Random rand = new Random();
 
 
     @Override
@@ -79,9 +81,15 @@ public class EmotionActivity extends SpeechRecognition {
     public void processSpeech(String command) {
         Log.d(TAG, "process speech: " + command);
 
-        processMovement(command);
-        if(processListenCommand(command) == false){
-            IBMProcessSpeech(command);
+        if(userInformationSingleton.getVoiceControlled())
+            voiceDrive(command);
+        else {
+//            RobotFacade.getInstance().say("im no longer voice controlled");
+            if (!processMovement(command)) {
+                if (processListenCommand(command) == false) {
+                    IBMProcessSpeech(command);
+                }
+            }
         }
 
     }
@@ -100,10 +108,14 @@ public class EmotionActivity extends SpeechRecognition {
     @Override
     public void processSocketIOCommands(String command) {
         Log.d(TAG, "process command: " + command);
-        processListenCommand(command);
-        processMathGameCommand(command);
-        processEmotions(command);
-        processMovement(command);
+        if(processListenCommand(command))
+            return;
+        if(processMathGameCommand(command))
+            return;
+        if(processEmotions(command))
+            return;
+        if(processMovement(command))
+            return;
     }
 
     //--------------------------------------------------
@@ -121,16 +133,24 @@ public class EmotionActivity extends SpeechRecognition {
             onPause();
             return true;
         }
+        else if(command.matches("start chat")){
+            ArrayList<String> chatSayings = userInformationSingleton.getChatSayings();
+            RobotFacade.getInstance().say(chatSayings.get(rand.nextInt(chatSayings.size() - 1)));
+            return true;
+        }
         return false;
     }
 
-    public void processMathGameCommand(String command){
+    public boolean processMathGameCommand(String command){
         if(command.matches("Math1")){
             RobotFacade.getInstance().say("Hi, can you help me with my math homework");
+            return true;
         }
         else if(command.matches("CorrectMath")){
             RobotFacade.getInstance().say("Good Job! You got it Right!");
+            return true;
         }
+        return false;
     }
 
     //--------------------------------------------------
@@ -138,32 +158,38 @@ public class EmotionActivity extends SpeechRecognition {
     // Changes emotions based on emotional state
     //
     //--------------------------------------------------
-    public void processEmotions(String emotion){
+    public boolean processEmotions(String emotion){
         if(emotion.matches("Happy")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.happyface);
             RobotFacade.getInstance().say("I am happy");
+            return true;
         }
         else if(emotion.matches("Bored")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.neutral);
             RobotFacade.getInstance().say("I am bored");
+            return true;
         }
         else if(emotion.matches("Sad")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.sadface);
             RobotFacade.getInstance().say("I am sad");
+            return true;
         }
         else if(emotion.matches("Mad")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.angry);
             RobotFacade.getInstance().say("I am mad");
+            return true;
         }
         else if(emotion.matches("Broken")){
             Log.d(TAG, "process Emotions: " + emotion);
             displayFace.setImageResource(R.drawable.tired);
             RobotFacade.getInstance().say("I am broken");
+            return true;
         }
+        return false;
     }
 
     //--------------------------------------------------
@@ -171,24 +197,105 @@ public class EmotionActivity extends SpeechRecognition {
     // Drive controls
     //
     //--------------------------------------------------
-    public void processMovement(String movement){
-        if(movement.matches("forward")){
+    public boolean processMovement(String movement){
+        ArrayList<String> MovementSayings = userInformationSingleton.getMovmentSayings();
+
+        if(movement.toLowerCase().contains("forward")){
             robotState.moveForward();
+            return true;
         }
-        else if(movement.matches("backward")){
+        else if(movement.toLowerCase().contains("backward") || movement.toLowerCase().contains("back")){
             robotState.moveBackward();
+            return true;
         }
-        else if(movement.matches("right")){
+        else if(movement.toLowerCase().contains("right") ){
             robotState.turnRight();
+            return true;
         }
-        else if(movement.matches("left")){
+        else if(movement.toLowerCase().contains("left") ){
             robotState.turnLeft();
+            return true;
         }
-        else if(movement.matches("stop")){
+        else if(movement.toLowerCase().matches("stop") ){
             robotState.stop();
+            return true;
         }
+        else if(movement.matches("start drive listening")){
+            userInformationSingleton.setVoiceControlled(true);
+            TextToSpeech mTTs = RobotFacade.getInstance().say("Now you can tell me how to drive! Tell me to move forward, backward, left or right!");
+            while (mTTs.isSpeaking()){
+                continue;
+            }
+            startListening();
+            return true;
+        }
+        else if(movement.matches("stop drive listening")){
+            userInformationSingleton.setVoiceControlled(false);
+            onPause();
+            RobotFacade.getInstance().say("Thanks for helping me drive around!");
+            return true;
+        }
+        return false;
     }
 
+    public Boolean voiceDrive(String movement) {
+        if (movement.toLowerCase().contains("forward")) {
+            robotState.moveForward();
+            RobotFacade.getInstance().say("Forward");
+
+            try {
+                Thread.sleep(2000);
+                robotState.stop();
+                startListening();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return true;
+        } else if (movement.toLowerCase().contains("backward") || movement.toLowerCase().contains("back")) {
+            robotState.moveBackward();
+            RobotFacade.getInstance().say("Backward");
+
+            try {
+                Thread.sleep(2000);
+                robotState.stop();
+                startListening();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        } else if (movement.toLowerCase().contains("right")) {
+            robotState.turnRight();
+            RobotFacade.getInstance().say("Right");
+
+            try {
+                Thread.sleep(2000);
+                robotState.stop();
+                startListening();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        } else if (movement.toLowerCase().contains("left")) {
+            RobotFacade.getInstance().say("Left");
+            robotState.turnLeft();
+            try {
+                Thread.sleep(2000);
+                robotState.stop();
+                startListening();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return true;
+        }
+        else if(movement.toLowerCase().matches("stop") ){
+            userInformationSingleton.setVoiceControlled(false);
+            RobotFacade.getInstance().say("Thanks for helping me drive around!");
+            return true;
+        }
+        return false;
+    }
 
     //--------------------------------------------------
     //
@@ -210,9 +317,9 @@ public class EmotionActivity extends SpeechRecognition {
                     .inputText(message)
                     .context(context)
                     .build();
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(this, "this is the context: " + context.toString(), duration);
-            toast.show();
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(this, "this is the context: " + context.toString(), duration);
+//            toast.show();
         }
 
 
@@ -266,7 +373,8 @@ public class EmotionActivity extends SpeechRecognition {
 
 
     public void happyStateFaceClick(View view) {
-        RobotFacade.getInstance().say("Hey that tickeled");
+        ArrayList<String> faceSayings = userInformationSingleton.getFaceSayings();
+        RobotFacade.getInstance().say(faceSayings.get(rand.nextInt(faceSayings.size() - 1)));
     }
 
 

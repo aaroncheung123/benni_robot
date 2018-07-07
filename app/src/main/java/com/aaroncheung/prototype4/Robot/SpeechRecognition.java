@@ -113,11 +113,11 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
 
     public void startListening(){
         Map<String, Object> context = userInformationSingleton.getContext();
-        if(context != null) {
-            int duration = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(this, "this is the context: " + context.toString(), duration);
-            toast.show();
-        }
+//        if(context != null) {
+//            int duration = Toast.LENGTH_SHORT;
+//            Toast toast = Toast.makeText(this, "this is the context: " + context.toString(), duration);
+//            toast.show();
+//        }
         Log.d(TAG, "startListening");
         userInformationSingleton.setChatting(true);
         ActivityCompat.requestPermissions

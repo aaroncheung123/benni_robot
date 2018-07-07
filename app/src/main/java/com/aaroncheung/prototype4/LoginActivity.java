@@ -112,6 +112,8 @@ public class LoginActivity extends Activity {
                     BatteryServiceIntent = new Intent(getApplicationContext(), BatteryService.class);
                     startService(BatteryServiceIntent);
 
+                    userInformationSingleton.setSayings();
+
                     startActivity(new Intent(LoginActivity.this, EmotionActivity.class));
                 }
                 else{
