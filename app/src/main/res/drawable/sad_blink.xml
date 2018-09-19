@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/selected" android:oneshot="false">
+    <item android:drawable="@drawable/s87" android:duration="50" />
+    <item android:drawable="@drawable/s88" android:duration="50" />
+    <item android:drawable="@drawable/s89" android:duration="50" />
+    <item android:drawable="@drawable/s90" android:duration="50" />
+    <item android:drawable="@drawable/s91" android:duration="50" />
+    <item android:drawable="@drawable/s92" android:duration="50" />
+    <item android:drawable="@drawable/s93" android:duration="50" />
+    <item android:drawable="@drawable/s94" android:duration="50" />
+    <item android:drawable="@drawable/s95" android:duration="50" />
+    <item android:drawable="@drawable/s96" android:duration="50" />
+    <item android:drawable="@drawable/s95" android:duration="50" />
+    <item android:drawable="@drawable/s94" android:duration="50" />
+    <item android:drawable="@drawable/s93" android:duration="50" />
+    <item android:drawable="@drawable/s92" android:duration="50" />
+    <item android:drawable="@drawable/s91" android:duration="50" />
+    <item android:drawable="@drawable/s90" android:duration="50" />
+    <item android:drawable="@drawable/s89" android:duration="50" />
+    <item android:drawable="@drawable/s88" android:duration="50" />
+    <item android:drawable="@drawable/s87" android:duration="1000" />
+</animation-list>

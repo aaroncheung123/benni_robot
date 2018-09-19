@@ -13,6 +13,8 @@ public class UserInformationSingleton {
     private Boolean isChatting = false;
     private Map<String, Object> context;
     Boolean voiceControlled = false;
+    private String lastResponse = "";
+    private Boolean IBMChatting = true;
 
     private ArrayList<String> MovmentSayings;
     private ArrayList<String> ChatSayings;
@@ -42,10 +44,10 @@ public class UserInformationSingleton {
         MovmentSayings.add("Thanks for helping me move around!");
 
         ChatSayings = new ArrayList<String>();
-        ChatSayings.add("Lets Chat! Push the Off button to start chatting and ask me a question");
-        ChatSayings.add("Thanks for chatting with me, I get so bored! Push the Off button to start chatting with me");
-        ChatSayings.add("I love talking! Push the button to start and stop talking with me!");
-        ChatSayings.add("Oh boy! A friend to talk with! Push the button to start talking to me!");
+        ChatSayings.add("Lets Chat!");
+        ChatSayings.add("Thanks for chatting with me,");
+        ChatSayings.add("I love talking! ");
+        ChatSayings.add("Oh boy! A friend to talk with!");
 
         FaceSayings = new ArrayList<String>();
         FaceSayings.add("Hey! That tickled!");
@@ -141,4 +143,19 @@ public class UserInformationSingleton {
     }
 
 
+    public String getLastResponse() {
+        return lastResponse;
+    }
+
+    public void setLastResponse(String lastResponse) {
+        this.lastResponse = lastResponse;
+    }
+
+    public Boolean getIBMChatting() {
+        return IBMChatting;
+    }
+
+    public void setIBMChatting(Boolean IBMChatting) {
+        this.IBMChatting = IBMChatting;
+    }
 }

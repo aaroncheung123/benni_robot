@@ -216,7 +216,9 @@ public class SpeechRecognition extends Activity implements RecognitionListener {
         processSpeech(message);
     }
 
-    public void processSpeech(String message){}
+    public void processSpeech(String message){
+        userInformationSingleton.setLastResponse(message);
+    }
 
     @Override
     public void onRmsChanged(float rmsdB) {

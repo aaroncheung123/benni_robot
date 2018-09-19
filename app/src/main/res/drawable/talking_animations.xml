@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/selected1" android:oneshot="false">
+    <item android:drawable="@drawable/t51" android:duration="50" />
+    <item android:drawable="@drawable/t52" android:duration="50" />
+    <item android:drawable="@drawable/t53" android:duration="50" />
+    <item android:drawable="@drawable/t54" android:duration="50" />
+    <item android:drawable="@drawable/t55" android:duration="50" />
+    <item android:drawable="@drawable/t56" android:duration="50" />
+    <item android:drawable="@drawable/t57" android:duration="50" />
+    <item android:drawable="@drawable/t58" android:duration="50" />
+    <item android:drawable="@drawable/t59" android:duration="50" />
+    <item android:drawable="@drawable/t59" android:duration="50" />
+    <item android:drawable="@drawable/t58" android:duration="50" />
+    <item android:drawable="@drawable/t57" android:duration="50" />
+    <item android:drawable="@drawable/t56" android:duration="50" />
+    <item android:drawable="@drawable/t55" android:duration="50" />
+    <item android:drawable="@drawable/t54" android:duration="50" />
+    <item android:drawable="@drawable/t53" android:duration="50" />
+    <item android:drawable="@drawable/t52" android:duration="50" />
+    <item android:drawable="@drawable/t51" android:duration="50" />
+
+
+
+</animation-list>

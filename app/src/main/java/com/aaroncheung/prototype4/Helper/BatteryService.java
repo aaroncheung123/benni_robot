@@ -43,8 +43,8 @@ public class BatteryService extends Service {
         userInformationSingleton.setMinInLowCharge(0);
 
         sendRobotHeadBattery();
-        getRobotBattery();
-        sendRobotBattery();
+        //getRobotBattery();
+        //sendRobotBattery();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -62,14 +62,14 @@ public class BatteryService extends Service {
                 @Override
                 public void run() {
 
-                    try {
-                        batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
-                        batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
-                        Log.d(TAG, String.valueOf(batteryLevel));
-                        speechRecognition.attemptSend("headBattery-" + String.valueOf(batteryLevel));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                    //try {
+                        //batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
+                        //batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
+                        //Log.d(TAG, String.valueOf(batteryLevel));
+                        //speechRecognition.attemptSend("headBattery-" + String.valueOf(batteryLevel));
+                    //} catch (JSONException e) {
+                    //    e.printStackTrace();
+                    //}
 
                     handler.postDelayed(this, 3600);
                 }
@@ -83,43 +83,43 @@ public class BatteryService extends Service {
     // Get robot battery
     //
     //----------------------------------------------
-    public void getRobotBattery(){
-        final Handler handler = new Handler();
-        Runnable run = new Runnable() {
-            @Override
-            public void run() {
-                RobotFacade robotFacade = RobotFacade.getInstance();
-                robotFacade.getBattery();
-                sendRobotBattery();
-                handler.postDelayed(this, 3600);
-            }
-        };
-        handler.post(run);
-    }
+//    public void getRobotBattery(){
+//        final Handler handler = new Handler();
+//        Runnable run = new Runnable() {
+//            @Override
+//            public void run() {
+//                //RobotFacade robotFacade = RobotFacade.getInstance();
+//                //robotFacade.getBattery();
+//                //sendRobotBattery();
+//                //handler.postDelayed(this, 3600);
+//            }
+//        };
+//        handler.post(run);
+//    }
 
     //----------------------------------------------
     //
     // Send robot battery
     //
     //----------------------------------------------
-    public void sendRobotBattery(){
-        if(!userInformationSingleton.getChatting()) {
-
-            final Handler handler = new Handler();
-            Runnable run = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        speechRecognition.attemptSend("bodyBattery-" + String.valueOf(userInformationSingleton.getRobotBattery()));
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    handler.postDelayed(this, 3600); }
-            };
-            handler.post(run);
-        }
-    }
+//    public void sendRobotBattery(){
+//        if(!userInformationSingleton.getChatting()) {
+//
+//            final Handler handler = new Handler();
+//            //Runnable run = new Runnable() {
+//               // @Override
+//                //public void run() {
+//                   // try {
+//                    //    speechRecognition.attemptSend("bodyBattery-" + String.valueOf(userInformationSingleton.getRobotBattery()));
+//
+//                    //} catch (JSONException e) {
+//                    //    e.printStackTrace();
+//                    //}
+//                    //handler.postDelayed(this, 3600); }
+//            //};
+//            //handler.post(run);
+//        }
+//    }
 
 
 }
