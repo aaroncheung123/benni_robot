@@ -31,8 +31,6 @@ public class LoginActivity extends Activity {
     private Intent BatteryServiceIntent;
     private UserInformationSingleton userInformationSingleton;
 
-    void func(){}
-    void lol(){}
 
 
     private String password;
