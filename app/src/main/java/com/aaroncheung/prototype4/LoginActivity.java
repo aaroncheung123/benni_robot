@@ -30,7 +30,6 @@ public class LoginActivity extends Activity {
     private EditText passwordEditText;
     private Intent BatteryServiceIntent;
     private UserInformationSingleton userInformationSingleton;
-    // This is a changes Brian 2
 
 
     private String password;
