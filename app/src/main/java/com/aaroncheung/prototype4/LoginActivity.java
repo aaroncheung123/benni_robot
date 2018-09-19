@@ -32,6 +32,7 @@ public class LoginActivity extends Activity {
     private UserInformationSingleton userInformationSingleton;
 
 
+
     private String password;
 
     @Override
