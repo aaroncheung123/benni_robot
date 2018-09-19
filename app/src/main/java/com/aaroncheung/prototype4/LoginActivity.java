@@ -30,7 +30,7 @@ public class LoginActivity extends Activity {
     private EditText passwordEditText;
     private Intent BatteryServiceIntent;
     private UserInformationSingleton userInformationSingleton;
-    // This is a changes
+    // This is a changes master yo
 
 
     private String password;
